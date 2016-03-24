@@ -35,6 +35,9 @@ pre {
   max-height: 23em;
 }
 
+address {
+  font-style: normal;
+}
 
 /* Utility */
 
@@ -122,6 +125,8 @@ pre {
 .site-footer .column { float: left; margin-bottom: 15px; }
 
 .footer-col-1 {
+  padding-top: 1em;
+
   width: 270px; /*fallback*/
   width: -webkit-calc(35% - 10px);
   width: -moz-calc(35% - 10px);
@@ -147,8 +152,7 @@ pre {
 
 .site-footer ul { list-style: none; }
 
-.site-footer li,
-.site-footer p {
+.site-footer .column {
   font-size: 15px;
   letter-spacing: -.3px;
   color: #828282;

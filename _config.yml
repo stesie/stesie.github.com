@@ -1,7 +1,7 @@
 # Site settings
 title: stesie's musings
 email: stesie@brokenpipe.de
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+description: "This is my personal collection of random musings, related to stuff I am interested in ... that is web-related development (PHP, JavaScript), Software Craftsmanship, Docker, Continuous Integration, ... you name it"
 baseurl: ""
 url: "http://stesie.github.io"
 twitter_username: stesie23
