@@ -1,15 +1,18 @@
 ---
 layout: default
 ---
-
 <div class="home">
 
   <div id="content" class="posts">
     {% for post in paginator.posts %}
-      <article>
-        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <h1><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
-		{{ post.content }}
+      <article class="post">
+		<header class="post-header">
+		  <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+		  <h1><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
+		</header>
+		<div class="post-content">
+		  {{ post.content }}
+		</div>
       </article>
     {% endfor %}
   </div>

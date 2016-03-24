@@ -87,7 +87,6 @@ address {
   display: block;
   color: #333;
   font-size: 3.5em;
-  letter-spacing: -1px;
   float: left;
   line-height: 56px;
   position: relative;
@@ -108,7 +107,6 @@ address {
 .site-nav .page-link {
   margin-left: 20px;
   color: #727272;
-  letter-spacing: -.5px;
 }
 
 /* Site footer */
@@ -121,7 +119,6 @@ address {
 .footer-heading {
   font-size: 18px;
   font-weight: 300;
-  letter-spacing: -.5px;
   margin-bottom: 15px;
 }
 
@@ -157,7 +154,6 @@ address {
 
 .site-footer .column {
   font-size: 15px;
-  letter-spacing: -.3px;
   color: #828282;
 }
 
@@ -184,8 +180,6 @@ address {
 /* ----------------------------------------------------------*/
 
 .home h1 { 
-  font-size: 2em;
-  margin: 0 0 25px;
 }
 
 .posts article {
@@ -194,7 +188,7 @@ address {
   border-top: 1px solid #ccc;
 }
 
-.posts .post-date {
+.post-date {
   display: block;
   font-size: 15px;
   color: #818181;
@@ -207,10 +201,10 @@ address {
 .post-header { margin: 10px 0 30px; }
 
 .post-header h1 {
-  font-size: 42px;
-  letter-spacing: -1.75px;
+  font-size: 2.4em;
   line-height: 1;
   font-weight: 300;
+  margin: 0 0 25px;
 }
 
 .post-header .meta {
@@ -221,7 +215,9 @@ address {
 
 .post-content { margin: 0 0 30px; }
 
-.post-content > * { margin: 20px 0; }
+.post-content > * {
+  margin: 1em 0;
+}
 
 
 .post-content h1,
@@ -236,18 +232,15 @@ address {
 }
 
 .post-content h2 {
-  font-size: 32px;
-  letter-spacing: -1.25px;
+  font-size: 1.9em;
 }
 
 .post-content h3 {
-  font-size: 26px;
-  letter-spacing: -1px;
+  font-size: 1.7em;
 }
 
 .post-content h4 {
-  font-size: 20px;
-  letter-spacing: -1px;
+  font-size: 1.4em;
 }
 
 .post-content blockquote {
@@ -255,7 +248,6 @@ address {
   padding-left: 20px;
   font-size: 18px;
   opacity: .6;
-  letter-spacing: -1px;
   font-style: italic;
   margin: 30px 0;
 }
@@ -263,28 +255,8 @@ address {
 .post-content ul,
 .post-content ol { padding-left: 20px; }
 
-.post code { padding: 1px 5px; }
-
 .post ul,
 .post ol { margin-left: 1.35em; }
-
-.post pre code {
-  border: 0;
-  padding-right: 0;
-  padding-left: 0;
-}
-
-/* terminal */
-.post pre.terminal {
-  border: 1px solid #000;
-  background-color: #333;
-  color: #FFF;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
-.post pre.terminal code { background-color: #333; }
 
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
