@@ -9,7 +9,7 @@ phpspec has some class and method templating built into it.  If for example a t
 
 I like the well readable test code that can be written with it like
 
-```php
+```php?start_inline=1
 $this->getScore()->shouldReturn(150)
 ```
 
@@ -17,7 +17,7 @@ $this->getScore()->shouldReturn(150)
 
 Calling methods of the SUT directly on `$this` gets even more messy once you add test helper methods like
 
-```php
+```php?start_inline=1
 function it_grants_spare_bonus()
 {
     $this->rollSpare();
