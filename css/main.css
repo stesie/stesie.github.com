@@ -15,6 +15,23 @@ a         { color: #2a7ae2; text-decoration: none; }
 a:hover   { text-decoration: underline; }
 a:visited { color: #205caa; }
 
+p code {
+  background-color: #f5f5f5;
+  padding: 0px 5px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+pre {
+  background-color: #f5f5f5;
+  padding: 1em;
+  border: 1px solid #ccc;
+  overflow: auto;
+  max-height: 23em;
+}
+
+
 /* Utility */
 
 .wrap:before,
