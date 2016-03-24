@@ -10,16 +10,16 @@ html, body { height: 100%; }
 
 body {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.5em;
   font-weight: 300;
   background-color: #fdfdfd;
 }
 
-h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; }
+h1, h2, h3, h4, h5, h6 { font-weight: 400; }
 
 a         { color: #2a7ae2; text-decoration: none; }
-a:hover   { color: #000; text-decoration: underline; }
+a:hover   { text-decoration: underline; }
 a:visited { color: #205caa; }
 
 /* Utility */
@@ -28,7 +28,7 @@ a:visited { color: #205caa; }
 .wrap:after { content:""; display:table; }
 .wrap:after { clear: both; }
 .wrap {
-  max-width: 800px;
+  max-width: 720px;
   padding: 0 30px;
   margin: 0 auto;
   zoom: 1;
@@ -58,6 +58,10 @@ a:visited { color: #205caa; }
   line-height: 56px;
   position: relative;
   z-index: 1;
+}
+
+.site-title:hover {
+  text-decoration: none; 
 }
 
 .site-nav {
@@ -146,15 +150,7 @@ a:visited { color: #205caa; }
 
 .home h1 { margin-bottom: 25px; }
 
-.posts { list-style-type: none; }
-
-.posts li { margin-bottom: 30px; }
-
-.posts .post-link {
-  font-size: 24px;
-  letter-spacing: -1px;
-  line-height: 1;
-}
+.posts article { margin-bottom: 30px; }
 
 .posts .post-date {
   display: block;
