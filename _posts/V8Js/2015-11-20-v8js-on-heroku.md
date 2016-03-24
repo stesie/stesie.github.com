@@ -9,9 +9,9 @@ possible to push PHP applications onto Heroku that require the extension.
 
 When creating the app on Heroku simply specify the custom buildpack like
 
-<pre>
+```
 heroku create laughinghipster -b https://github.com/stesie/heroku-buildpack-php.git
-</pre>
+```
 
 ... where *laughinghipster* is an arbitrary application name and the last argument
 the URL to my buildpack on Github.
@@ -19,7 +19,7 @@ the URL to my buildpack on Github.
 The pushed repo must include a file named `composer.json` that requires `ext-v8js`;
 either with a particular version or just wildcard:
 
-<pre>
+```json
 {
     "require": {
         "slim/slim": "2.*",
@@ -27,14 +27,13 @@ either with a particular version or just wildcard:
         "twig/twig": "1.*",
         "ext-v8js": "*" 
     }
-	... more stuff here ...
 }
-</pre>
+```
 
 Then simply push the application to Heroku, it should detect the dependency on
 `ext-v8js` and simply download & install it:
 
-<pre>
+```console
 stesie@hahnschaaf:~/Projekte/laughinghipster$ git push heroku master
 Zähle Objekte: 1878, Fertig.
 Delta compression using up to 4 threads.
@@ -81,7 +80,7 @@ remote:
 remote: Verifying deploy.... done.
 To https://git.heroku.com/laughinghipster.git
  * [new branch]      master -> master
-</pre> 
+```
 
 ... and you're set.
 

@@ -20,16 +20,16 @@ set of classes acting as an API the JavaScript code can use.
 
 First things first, a simple hello world:
 
-{% highlight php %}<?php
+```php?start_inline=1
 $a = new V8Js();
 $a->executeString('print("Hello World\n");');
-{% endhighlight %}
+```
 
 ... super simple and doesn't do very much.
 
 Of course you can inject object instances as well:
 
-{% highlight php %}<?php
+```php?start_inline=1
 class LoaderWriter {
     public function addRecord($type = 'text', $value = '') {
         echo "addRecord -- $type, $value\n";
@@ -43,12 +43,12 @@ EOT;
 $a = new V8Js();
 $a->loader = new LoaderWriter();
 $a->executeString($jscode);
-{% endhighlight %}
+```
 
 However that's still stuff you'd expect to work.  What about pushing
 closures from JavaScript to PHP and call these from PHP?  Works!
 
-{% highlight php %}<?php
+```php?start_inline=1
 class Parser {
     protected $_callbacks = array();
 
@@ -74,7 +74,7 @@ $a->parser = new Parser();
 $a->executeString($jscode);
 
 $a->parser->runParser();
-{% endhighlight %}
+```
 
 ... this way you can easily use PHP's nice XmlReader to read chunks from
 XML files and have a customer-provided piece of JavaScript code bind on
@@ -102,7 +102,7 @@ Since I've made myself familiar with the source I also replaced
 deprecated calls to V8 API by newer equivalents and allowed for construction
 of PHP objects from JavaScript.  This is do stuff like that:
 
-{% highlight php %}<?php
+```php?start_inline=1
 $v8 = new V8Js();
 
 class Greeter {
@@ -130,7 +130,7 @@ EOT;
 
 $v8->greeter = new Greeter();
 $v8->executeString($jscode);
-{% endhighlight %}
+```
 
 ... I can't immediately come up with a use case, but hey, JavaScript
 is all about (constructor) functions, so it definitely should work.

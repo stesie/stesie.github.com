@@ -34,7 +34,7 @@ This is any calling application can store data in Geierlein file format into
 the `localStorage` object and forward to Geierlein providing a special hash like
 so:
 
-{% highlight javascript %}
+```js
   localStorage["geierlein.import"] = "\
 name = Stefan Siegl\n\
 strasse = Philipp-Zorn-Str. 30\n\
@@ -48,7 +48,7 @@ kz81 = 1000\n\
 kz89 = 500\n\
 kz83 = 285,00\n";
   location.href = "http://localhost:4080/#importLocalStorage";
-{% endhighlight %}
+```
 
 The special hash triggers an import routine in Geielein, which reads the key
 from the storage object, fills the form accordingly, clears the storage and
@@ -73,7 +73,3 @@ above just has to be modified slightly:
 
 * data must obviously be stored to `window.name` instead
 * the hash needs to be `#importWindowName`
-
-
-
-

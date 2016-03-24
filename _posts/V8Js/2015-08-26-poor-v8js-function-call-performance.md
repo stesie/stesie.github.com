@@ -7,14 +7,14 @@ category: V8Js
 Today I noticed, that invocations of `V8Function` objects have a really poor
 call performance.  A simple example might be:
 
-{% highlight php %}<?php
+```php?start_inline=1
 $v8 = new V8Js();
 $func = $v8->executeString('(function() { print("Hello\\n"); });');
 
 for($i = 0; $i < 1000; $i ++) {
     $func();
 }
-{% endhighlight %}
+```
 
 ... on my laptop this takes 2.466 seconds (with latest V8Js 0.2.1); older
 versions like V8Js 0.1.5 even take 80 seconds.
@@ -22,12 +22,12 @@ versions like V8Js 0.1.5 even take 80 seconds.
 That felt strange, since V8Js performance generally is pretty good and the
 slightly changed version
 
-{% highlight php %}<?php
+```php?start_inline=1
 $v8 = new V8Js();
 for($i = 0; $i < 1000; $i ++) {
     $v8->executeString('(function() { print("Hello World\\n"); })();');
 }
-{% endhighlight %}
+```
 
 ... has drastically better performance figures, just 0.168 seconds with recent
 V8Js and 0.247 seconds with ancient 0.1.5.

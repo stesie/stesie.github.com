@@ -20,7 +20,7 @@ and controlled with labels, that are easily stylable using CSS.
 The appropriate content is made visible using CSS's general sibling 
 cominator, i.e. `~`, and otherwise defaults to invisible like so:
 
-{% highlight css %}
+```css
 /* Show .info, if the related radio button is checked. */
 .block input[type='radio']:checked ~ .info {
     height: 130px;
@@ -30,7 +30,7 @@ cominator, i.e. `~`, and otherwise defaults to invisible like so:
 .info {
     height: 0;
 } 
-{% endhighlight %}
+```
 
 Transitions between state can easily be achieved using transition
 CSS properties.
