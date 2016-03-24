@@ -33,6 +33,9 @@ pre {
   border: 1px solid #ccc;
   overflow: auto;
   max-height: 23em;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 address {
@@ -259,18 +262,6 @@ address {
 
 .post-content ul,
 .post-content ol { padding-left: 20px; }
-
-.post pre,
-.post code {
-  border: 1px solid #d5d5e9;
-  background-color: #eef;
-  padding: 8px 12px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  font-size: 15px;
-  overflow:scroll;
-}
 
 .post code { padding: 1px 5px; }
 
