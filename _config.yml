@@ -11,4 +11,7 @@ github_username:  stesie
 markdown: kramdown
 permalink: pretty
 
+gems:
+ - jekyll-paginate
+
 paginate: 5
