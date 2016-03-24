@@ -176,13 +176,11 @@ address {
 }
 
 
-/* Home styles */
+/* Post styles */
 /* ----------------------------------------------------------*/
 
-.home h1 { 
-}
 
-.posts article {
+article {
   margin-bottom: 5em;
   padding-top: 2em;
   border-top: 1px solid #ccc;
@@ -193,10 +191,6 @@ address {
   font-size: 15px;
   color: #818181;
 }
-
-
-/* Post styles */
-/* ----------------------------------------------------------*/
 
 .post-header { margin: 10px 0 30px; }
 
