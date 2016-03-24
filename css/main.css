@@ -1,11 +1,6 @@
 /* Base */
 /* ----------------------------------------------------------*/
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 html, body { height: 100%; }
 
 body {
@@ -15,8 +10,6 @@ body {
   font-weight: 300;
   background-color: #fdfdfd;
 }
-
-h1, h2, h3, h4, h5, h6 { font-weight: 400; }
 
 a         { color: #2a7ae2; text-decoration: none; }
 a:hover   { text-decoration: underline; }
@@ -34,9 +27,25 @@ a:visited { color: #205caa; }
   zoom: 1;
 }
 
-
 /* Layout Styles */
 /* ----------------------------------------------------------*/
+
+
+/* Pagination */
+.pagination {
+  border-top: 1px solid #e8e8e8;
+  margin-top: 3em;
+  padding: 1em 0;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.pagination .next,
+.pagination .page-number,
+.pagination .previous {
+	float: right;
+	margin-left: 1em;
+}
 
 /* Site header */
 
@@ -148,7 +157,10 @@ a:visited { color: #205caa; }
 /* Home styles */
 /* ----------------------------------------------------------*/
 
-.home h1 { margin-bottom: 25px; }
+.home h1 { 
+  font-size: 2em;
+  margin: 0 0 25px;
+}
 
 .posts article { margin-bottom: 30px; }
 

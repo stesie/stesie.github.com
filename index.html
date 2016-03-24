@@ -5,7 +5,7 @@ layout: default
 <div class="home">
 
   <div id="content" class="posts">
-    {% for post in site.posts %}
+    {% for post in paginator.posts %}
       <article>
         <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
         <h1><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
@@ -14,6 +14,20 @@ layout: default
     {% endfor %}
   </div>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  <div class="pagination">
+    <span class="rss-subscribe"><a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS Feed</a></span>
+
+	{% if paginator.next_page %}
+	  <span class="next">
+		<a href="{{ paginator.next_page_path }}">Next Page</a>
+	  </span>
+	{% endif %}
+	<span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+	{% if paginator.previous_page %}
+	  <span class="previous">
+	    <a href="{{ paginator.previous_page_path }}">Previous Page</a>
+	  </span>
+	{% endif %}
+  </div>
 
 </div>
