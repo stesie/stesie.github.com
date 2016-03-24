@@ -1,0 +1,62 @@
+--- 
+layout: post
+title: "SMS awesomeness on my N900"
+tags: [ "Nokia N900", "HeySms", "Bonjour", "Python" ]
+category: Nokia N900
+---
+Some weeks ago I more or less accidentally stumbled over a neat little
+tool called [HeySms by Thibault Cohen](http://maemo.org/downloads/product/Maemo5/heysms/).
+It's written in pure Python, hence should be cross plattform, but actually
+it targets the Maemo 5 platform (i.e. the Nokia N900).
+
+After all the tool bridges between SMS message transport and
+the [Bonjour protocol](http://en.wikipedia.org/wiki/Bonjour_%28software%29).
+This is, if the N900 receives a SMS message it's automatically passed
+on via Bonjour to a previously defined contact.  Furthermore if this contact
+possibly answers via Bonjour, the reply is automatically forwarded as a SMS message.
+
+The user interface is actually dead simple:
+
+![Screenshot of HeySms](/assets/images/heysms.png)
+
+It just allows you to select the Bonjour contact, to pass incoming SMS
+messages to, as well as a friend list.  All friends are exported
+as Bonjour contacts, so they are visible in the contact list of
+the Bonjour client on your PC (I prefer [Empathy](https://live.gnome.org/Empathy)).
+This enables to actively send SMS messages, i.e. not just keep answering.
+
+After some initial problems HeySms really does a good job on my N900.
+I've sent quite a few pull requests to the author,
+which usually were integrated within hours.  Really, really pleasing :-)
+
+The most apparent problem was that incoming messages were not decoded
+correctly resulting in total gibberish being passed on to Empathy.
+Digging around a little I found out, that the software assumed a phone
+number length of 11 or 12 digits.
+Unfortunately my girlfriend's number has 13 digits :-)
+
+A second problem I quickly noticed was that the size of outgoing messages
+was limitted to only 70 chars.  This is due to the SMS PDU providing space
+for a message payload of 140 bytes and HeySms using UCS-2 encoding
+(which means 2 bytes per character).  I Initially solved this by adding
+support for concatenated SMS messages.  Later I added support for
+sending GSM-7 encoded messages to allow for the typical 160 chars per SMS.
+
+One last thing that really bugged me was that HeySms didn't correctly
+work in the office.  After quite a while I found out that the phone
+didn't send [multicast group joins](http://www.tldp.org/HOWTO/Multicast-HOWTO-2.html#ss2.4)
+as needed.  It turned out, that the Linux kernel I had installed
+(which is the stock power kernel image, aka kp51)
+had multicast support disabled.  After flashing a multicast-enabled kernel
+HeySms worked even there.
+
+In case you're interested, here are kp51 kernel images with multicast enabled:
+
+* [Linux 2.6.28 kp51+multicast image](https://github.com/downloads/stesie/stesie.github.com/kernel-power_2.6.28-10power51r1_armel.deb)
+* [flasher for the above image](https://github.com/downloads/stesie/stesie.github.com/kernel-power-flasher_2.6.28-10power51r1_armel.deb)
+* [Bootimg version of the above image](https://github.com/downloads/stesie/stesie.github.com/kernel-power-bootimg_2.6.28-10power51r1_armel.deb)
+* [Kernel modules for the above image](https://github.com/downloads/stesie/stesie.github.com/kernel-power-modules_2.6.28-10power51r1_armel.deb)
+
+
+If you've got a N900 and send plenty of SMS messages, give HeySms a try.  You'll
+definitely like it.

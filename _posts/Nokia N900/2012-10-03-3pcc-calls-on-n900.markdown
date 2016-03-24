@@ -1,0 +1,54 @@
+--- 
+layout: post
+title: "Awesome N900 - SofiaSIP and VoIP"
+tags: [ "Nokia N900", "SofiaSIP", "Telepathy", "Rakia", "Python" ]
+category: Nokia N900
+---
+One of the things that always annoyed me regarding my
+[Nokia N900](http://en.wikipedia.org/wiki/Nokia_N900) mobile phone was
+that it was not working correctly with the PBX at our office.
+
+At first we had an Auerswald COMpact 5020 VoIP PBX there, that supports
+SIP out of the box. The N900 does so two. Therefore why not just connect the
+two? Well it even allows you to connect and make outgoing calls.
+
+Incoming calls however cause trouble. The phone even rings, but as soon as you want
+to accept the call, the connection is reset. Back in January 2011 I found out, that
+the problem seems to be caused by Telepathy SofiaSIP (Telepathy's connection manager
+for SIP, which is mainly written by Nokia employees). It particularly does not
+support so-called 3pcc INVITEs. However the PBX is solely capable of sending this kind of INVITEs (or at least it doesn't seem to be configurable).
+
+I've submitted a [bug report against Telepathy SofiaSIP](https://bugs.freedesktop.org/show_bug.cgi?id=32808)
+back then. However until now Telepathy SofiaSIP still lacks 3pcc support (as
+opposed to alternative clients like Twinkle or Ekiga).
+
+Meanwhile we got a new PBX at the office, an Auerswald Commander 6000. Unfortunately
+this one also sends those 3pcc INVITEs, not supported by Nokia's N900. Installing
+other VoIP clients on the phone was not an option to me, since the whole phone
+is built around DBus and Telepathy. Another client like Ekiga would be painful,
+since it wouldn't integrate with the other applications on the phone, like addressbook and presence signaling.
+
+Besides SofiaSIP got renamed to Telepathy Rakia, but still no 3pcc support in sight.
+
+After all it's free software. With enough effort it should be more than
+possible to have 3pcc support on the phone. Since I decided to stick to the
+N900 for the upcoming months, I started studying Rakia's sources. It cost
+me quite a lot of time (read: several days in a row) and unfortunately the
+[resulting patch](https://gist.github.com/3694310)'s length doesn't tell
+so at all...
+
+Also available:
+
+* [backport to Telepathy SofiaSIP version 0.6.3](https://bugs.freedesktop.org/attachment.cgi?id=67240).
+* [Maemo package of Telepathy SofiaSIP 0.6.4](https://github.com/downloads/stesie/stesie.github.com/telepathy-sofiasip_0.6.4-1maemo1_armel.deb), having the patch applied.
+
+With the patch applied even incoming phone calls are no problem any longer. As it would have been too easy otherwise, two more problems popped up:
+
+* the PBX lists the N900 as unavailable minutes after connecting
+* there always is some chirping if I start to speak
+
+Having a look at the UDP packet stream using tcpdump it quickly became clear, that the N900 didn't re-register as needed (i.e. it didn't send keep-alives). I haven't debugged the issue much since there was a new upstream version of libsofia-sip. Instead I built a [new package of the library](https://github.com/downloads/stesie/stesie.github.com/libsofia-sip-ua0_1.12.11-1maemo1_armel.deb) and [it's glib bindings](https://github.com/downloads/stesie/stesie.github.com/libsofia-sip-ua-glib3_1.12.11-1maemo1_armel.deb). After installing those, the problem instantly disappeared.
+
+The glitches and chirping were caused by power saving modes of the processor. The frequency governor is configured to activate any frequency between 125 and 805 MHz.  So when noone was speaking, the speed fell down to 250 MHz or so. As soon as one party started to speak, there's just not enough processing power to do the voice encoding in time. Locking the frequency to 600 MHz immediately helped, everything works just as expected then.
+
+So how to lock the minimum frequency to 600 MHz during calls? The phone stack already has code to increase it during the ringing phase, however lowers it as soon as the call is established. That's okay for GSM calls, which use the DSP for voice encoding, but bad for VoIP. Since I didn't want to touch the existing C code I added a little [daemon called voipspdy](https://gist.github.com/3827328) that's monitoring the session DBus to notice calls. If a VoIP call is active it monitors the frequency settings file using inotify and constantly forces the minimum frequency to at least 600 MHz.
