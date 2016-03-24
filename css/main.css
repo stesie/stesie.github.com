@@ -71,8 +71,6 @@ pre {
 /* Site header */
 
 .site-header {
-  border-top: 5px solid #333;
-  border-bottom: 1px solid #e8e8e8;
   min-height: 56px;
   background-color: white;
 }
@@ -82,7 +80,7 @@ pre {
 .site-title:visited {
   display: block;
   color: #333;
-  font-size: 26px;
+  font-size: 3.5em;
   letter-spacing: -1px;
   float: left;
   line-height: 56px;
@@ -183,7 +181,11 @@ pre {
   margin: 0 0 25px;
 }
 
-.posts article { margin-bottom: 30px; }
+.posts article {
+  margin-bottom: 5em;
+  padding-top: 2em;
+  border-top: 1px solid #ccc;
+}
 
 .posts .post-date {
   display: block;
