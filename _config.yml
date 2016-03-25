@@ -9,7 +9,7 @@ github_username:  stesie
 
 # Build settings
 markdown: kramdown
-permalink: pretty
+permalink: /:year/:month/:title
 
 gems:
  - jekyll-paginate
