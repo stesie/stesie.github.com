@@ -1,0 +1,14 @@
+<header class="post-header">
+  <div class="post-meta">
+	<span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+	{% if post.tags.size > 0 %}
+	  • tagged
+	  <ul class="tag-list">
+		{% for post_tag in post.tags %}
+		  <li><a href="{{ BASE_PATH }}/tags/#{{ post_tag }}-ref">{{ post_tag }}</a></li>
+		{% endfor %}
+	  </ul>
+	{% endif %}
+  </div>
+  <h1><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
+</header>

@@ -6,10 +6,7 @@ layout: default
   <div id="content" class="posts">
     {% for post in paginator.posts %}
       <article class="post">
-		<header class="post-header">
-		  <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-		  <h1><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
-		</header>
+		{% include post_header.html %}
 		<div class="post-content">
 		  {{ post.content }}
 		</div>
