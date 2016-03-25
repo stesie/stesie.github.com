@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "20x performance boost with V8Js snapshots"
-tags: [ "V8Js", "V8 Heap Snapshots" ]
+tags: [ "V8Js", "V8 Heap Snapshots", "performance" ]
 ---
 Recently @virgofx [filed an issue](https://github.com/phpv8/v8js/issues/205) on V8Js whether (startup) 
 performance of V8Js could be increased.  He wants to do server-side React rendering and noticed that
