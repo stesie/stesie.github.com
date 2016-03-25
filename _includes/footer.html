@@ -1,6 +1,6 @@
 <footer class="site-footer">
 
-  <div class="wrap">
+  <div class="wrap vcard">
 
     <h2 class="footer-heading">{{ site.title }}</h2>
 
@@ -11,14 +11,15 @@
 	  </address>
 	  <div class="adr">
 		<div class="street-address">Philipp-Zorn-Str. 30</div>
-		<span class="postal-code">91522</span> <span class="locality">Ansbach</span>
+		<div><span class="postal-code">91522</span> <span class="locality">Ansbach</span></div>
+		<div class="country-name">Germany</div>
 	  </div>
     </div>
 
     <div class="footer-col-2 column">
       <ul>
         {% if site.github_username %}<li>
-          <a href="https://github.com/{{ site.github_username }}">
+          <a rel="me" class="url" href="https://github.com/{{ site.github_username }}">
             <span class="icon github">
               <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
@@ -37,7 +38,7 @@
           </a>
         </li>{% endif %}
         {% if site.twitter_username %}<li>
-          <a href="https://twitter.com/{{ site.twitter_username }}">
+          <a rel="me" class="url" href="https://twitter.com/{{ site.twitter_username }}">
             <span class="icon twitter">
               <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                  viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">

@@ -1,7 +1,7 @@
 # Site settings
 title: stesie's musings
 email: stesie@brokenpipe.de
-description: "This is my personal collection of random musings, related to stuff I am interested in ... that is web-related development (PHP, JavaScript), Software Craftsmanship, Docker, Continuous Integration, ... you name it"
+description: "This is my personal collection of random musings, related to stuff I am interested in ... that is web-related development (PHP, JavaScript), Software Craftsmanship, Docker, Continuous Integration, ..."
 baseurl: ""
 url: "http://stesie.github.io"
 twitter_username: stesie23
