@@ -5,7 +5,7 @@
 	  • tagged
 	  <ul class="tag-list">
 		{% for post_tag in post.tags %}
-		  <li><a href="{{ BASE_PATH }}/tags/#{{ post_tag }}-ref">{{ post_tag }}</a></li>
+		  <li><a href="{{ BASE_PATH }}/tags#{{ post_tag }}-ref">{{ post_tag }}</a></li>
 		{% endfor %}
 	  </ul>
 	{% endif %}
