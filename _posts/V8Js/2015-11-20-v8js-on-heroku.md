@@ -4,6 +4,12 @@ title: "V8Js on Heroku"
 category: V8Js
 tags: [ "V8Js", "Dokku", "Heroku" ]
 ---
+{: .info}
+**Update Mar 28, 2016**: It is no longer necessary (and hence discouraged) to 
+use a forked buildpack.  The official PHP buildpack now has support for so-called
+custom platform repositories, [therefore better see here how to use V8Js on Heroku](/2016/03/heroku-custom-platform-repo).
+
+
 After I've built my own PHP buildpack with V8Js included it's now easily
 possible to push PHP applications onto Heroku that require the extension.
 

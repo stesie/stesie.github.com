@@ -4,6 +4,12 @@ title: "PHP buildpack for V8Js"
 category: V8Js
 tags: [ "V8Js", "Dokku", "Heroku" ]
 ---
+{: .info}
+**Update Mar 28, 2016**: It is no longer necessary (and hence discouraged) to 
+fork the buildpack and rebuild it completely.  The official PHP buildpack
+now has support for so-called custom platform repositories, and
+[I've built one for V8Js meanwhile](/2016/03/heroku-custom-platform-repo).
+
 The other day I've configured a Dokku instance on my root server and
 then tried to install a PHP project requiring the V8Js extension.
 This of course failed for obvious reasons: Heroku's buildpack for

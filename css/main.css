@@ -45,6 +45,13 @@ address {
   font-style: normal;
 }
 
+.post-content .info {
+  border-left: 1em solid #dc0;
+  background-color: #ffa;
+  padding: 1em;
+}
+
+
 /* Utility */
 
 .wrap:before,
