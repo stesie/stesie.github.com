@@ -18,7 +18,7 @@ straight forward actually, ...
 
 so first let's create a minimal `Gemfile` first:
 
-```
+```ruby
 source 'https://rubygems.org'
 gem 'github-pages'
 ```
@@ -48,7 +48,7 @@ $ rm result   # nix-build created this (linking to bundix build)
 ... and last but not least we need a `default.nix` file which actually triggers the environment
 creation and also automatically starts `jekyll serve` after build:
 
-```
+```nix
 with import <nixpkgs> { };
 
 let jekyll_env = bundlerEnv rec {
