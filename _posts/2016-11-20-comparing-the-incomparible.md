@@ -3,8 +3,8 @@ layout: post
 title: "comparing the incomparible - #devcamp16 vs. #swec16"
 tags: [ "developercamp", "swecamp" ]
 ---
-Lucky me, living in the metropolitan area of Nuremberg, ... this year I was
-attending three different developer-oriented open spaces hosted within one hour
+Lucky me, living in the metropolitan area of Nuremberg, ... this year I
+attended three different developer-oriented open spaces hosted within one hour
 driving range from home.
 
 * [devops camp](http://www.devops-camp.de/) in Nuremberg, six iterations so far, first one back in March 2014
@@ -22,7 +22,7 @@ Unfortunately he wasn't willing to elaborate on what caused his feeling,
 but it kindof struck me ... I couldn't really answer the question which 
 of those two camps was better (and remained quiet during the retrospective)...
 
-But it kept bothering me and I had some time thinking on may way home, ... however I
+But it kept bothering me and I had some time to think on may way home, ... however I
 still cannot tell which one was "better", mainly since it doesn't feel right to
 compare the incomparible. After all both events attracted (slightly) different
 kinds of people. And as barcamps are largely shaped by their participators it's
