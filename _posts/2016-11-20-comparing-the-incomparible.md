@@ -62,7 +62,7 @@ psychology.
 I also happily noticed that CQRS and Event Sourcing were a topic on both events,
 maybe a little bit more focussed on DDD at *swecamp*. This isn't too surprising
 because of all the microservices buzz (which also was a hot topic on both
-events).  Again serverless was not a topic, meh
+events).  Again serverless was not a topic, meh.
 
 Last but not least *swecamp* was hosted in methodpark's office which was way
 cosier and more comfortable, more decorated than the university building in
