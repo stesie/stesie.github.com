@@ -12,7 +12,7 @@ trying to concentrate and if I just had told her ...
 
 As I'm practicing [pomodoro technique](https://en.wikipedia.org/wiki/Pomodoro_Technique)
 (primarily to regularly take breaks and not sitting at my desk for hours
-straight) I already have the information.  Starting work I hit `S-p` hotkey and
+straight) I already have the information.  Starting to work I hit `S-p` hotkey and
 the pomodoro clock ticks down from 25 minutes to zero.
 
 Wouldn't it be great if only that information was available to my girlfriend?
@@ -24,12 +24,15 @@ problem solved, here's what it looks like:
 ![photo of the lightbar in pomodoro mode](/assets/images/pomodorobar.jpg)
 
 At the beginning it shows 25 red LEDs followed by five green ones; clearly
-showing that I would not want to be interrupted.
+showing that I would not want to be interrupted.  As the minutes go by the
+red LEDs turn off, one every minute.  And if only green's left, then there's
+that perfect moment to start chatting :)
 
 The software part of the D1 mini is pretty simple, it just connects to my
-local [MQTT broker](https://mosquitto.org/); ... and the shell script which 
-is triggered by the aforementioned keyboard shortcut now just also publishes to
-the lightbar control topic.
+local [MQTT broker](https://mosquitto.org/) and fetches time via NTP; ... and
+the shell script which is triggered by the aforementioned keyboard shortcut now
+just also publishes the start timestamp of current pomodoro to the lightbar
+control topic.
 
 ... and being at it I kept improving the software, adding various modes
 of ambient and attraction light modes :)
