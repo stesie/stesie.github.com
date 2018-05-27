@@ -31,13 +31,13 @@ where n is the number of intents to handle):
 1. one *WebhookAgent* that simply provides an endpoint for the Alexa skill to call, set *payload_path* to a single dot
 2. one *TriggerAgent* per intent that shall be handled, matching on the name
    of the intent.  The *rules* array should look like this:
-```json
+```javascript
 "rules": [
-  {
-    "type": "field==value",
-    "value": "FlowersWateredIntent",
-    "path": "name"
-  }
+        {
+            "type": "field==value",
+            "value": "FlowersWateredIntent",
+            "path": "name"
+        }
 ]
 ```
 3. an agent to perform the requested task, in my case a *TodoistCloseItemAgent* with *id* set to the item id of the item I'd like to be closed upon invocation
@@ -126,6 +126,6 @@ exports.handler = function (event, context, callback) {
 So if I now speak to Alexa the Alexa Skills Kit backend does the voice
 recognition and triggers the lambda function.  This lambda function calls
 out to Huginn's PostAgent endpoint which emits an event (that includes all
-of the data ASK forwared, so you even can handle slots there).  The
+of the data ASK forwarded, so you even can handle slots there).  The
 TriggerAgent matches on this event and triggers the task to actually be
 done.
