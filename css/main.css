@@ -41,6 +41,10 @@ pre {
   border-radius: 3px;
 }
 
+li pre code {
+  border: none
+}
+
 address {
   font-style: normal;
 }
