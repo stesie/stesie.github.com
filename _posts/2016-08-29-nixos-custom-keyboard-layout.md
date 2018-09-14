@@ -3,6 +3,10 @@ layout: post
 title: "Customizing my Keyboard Layout on NixOS"
 tags: [ "NixOS", "Keyboard Layout", "Dvorak" ]
 ---
+{: .info}
+*UPDATE*: The exact methodology shown here does *not work anymore*.
+See [here](/2018/09/nixos-custom-keyboard-layout-revisited) for an updated version.
+
 Here's one missing write-up on a problem I immediately faced after reinstalling
 my Laptop with NixOS: my customized keyboard layout was missing.
 I'm using [Programmer Dvorak](http://www.kaufmann.no/roland/dvorak/) for a
