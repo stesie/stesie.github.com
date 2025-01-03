@@ -1,16 +1,24 @@
 baseURL: https://stesie.github.io
 languageCode: en-us
-title: Stefan Siegl
+title: stesie's musings
 theme: "PaperMod"
 
 params:
   homeInfoParams:
-    Title: stesie's musings
-    Content: This is my personal collection of random musings, related to stuff I am interested in ... that is web-related development, Software Craft, ...
+    Title: Hello World 👋
+    Content: This is my personal collection of random musings, related to stuff I am interested in ... that is web-related development, Software Craft, Cycling ...
 
   socialIcons: # optional
     - name: "github"
       url: "https://github.com/stesie"
+    - name: "codeberg"
+      url: "https://codeberg.org/stesie"
+    - name: "mastodon"
+      url: "https://wue.social/@rolf"
+    - name: "rss"
+      url: "https://stesie.github.io/feed.xml"
+    - name: "strava"
+      url: "https://www.strava.com/athletes/53820805"
     # - name: "youtube"
     #   url: "https://www.youtube.com/channel/XXX"
     # - name: "twitter"
@@ -49,10 +57,10 @@ outputFormats:
 
 menu:
   main:
-    # - identifier: categories
-    #   name: Categories
-    #   url: /categories/
-    #   weight: 10
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 10
     - identifier: tags
       name: Tags
       url: /tags/
@@ -60,7 +68,7 @@ menu:
     - identifier: search
       name: Search
       url: /search/
-      weight: 20
+      weight: 90
     - identifier: archive
       name: Archive
       url: /archives/
