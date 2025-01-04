@@ -17,6 +17,8 @@ params:
       url: "https://wue.social/@rolf"
     - name: "rss"
       url: "https://stesie.github.io/feed.xml"
+    - name: "email"
+      url: "mailto:mail@stefansiegl.de"
     - name: "strava"
       url: "https://www.strava.com/athletes/53820805"
     # - name: "youtube"
