@@ -8,7 +8,7 @@ tags:
 - Nuremberg
 title: Pig Latin Kata
 categories:
-lastMod: 2025-01-02
+lastMod: 2025-01-03
 ---
 Yesterday I ran the Pig Latin kata at the local software craftsmenship meetup in Nuremberg. Picking *Pig Latin* as the kata to do was more a coincidence than planned, but it turned out to be an interesting choice.
 

@@ -7,7 +7,7 @@ tags:
 - Tradebyte
 title: Starting a local developer meetup
 categories:
-lastMod: 2025-01-02
+lastMod: 2025-01-03
 ---
 As Ansbach (and the region around it) neither has a vibrant developer community nor a (regular) meetup to attract people to share their knowledge, mainly [@niklas_heer](https://twitter.com/niklas_heer) and me felt like having to get active...
 

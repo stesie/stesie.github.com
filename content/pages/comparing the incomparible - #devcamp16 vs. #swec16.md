@@ -6,7 +6,7 @@ date: 2016-11-20
 slug: comparing-the-incomparible
 title: comparing the incomparible - #devcamp16 vs. #swec16
 categories:
-lastMod: 2025-01-02
+lastMod: 2025-01-03
 ---
 Lucky me, living in the metropolitan area of Nuremberg, ... this year I attended three different developer-oriented open spaces hosted within one hour driving range from home.
 

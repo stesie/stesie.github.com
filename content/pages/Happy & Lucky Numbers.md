@@ -6,7 +6,7 @@ tags:
 date: 2016-03-10
 title: Happy & Lucky Numbers
 categories:
-lastMod: 2025-01-02
+lastMod: 2025-01-03
 ---
 The other day I paired with the guys from @solutiondrive and [@niklas_heer](https://twitter.com/niklas_heer), we had a fun evening learing about [happy numbers](https://en.wikipedia.org/wiki/Happy_number), shared PhpStorm knowledge, tried [Codeception](http://codeception.com/) etc. Actually we didn't even finish the ["Happy Numbers" Kata](https://app.box.com/s/4eu8q4799bwjc03lhk5ggzjzs2p5dlcg), since we only wrote the classifying routine, not the loop generating the output.
 

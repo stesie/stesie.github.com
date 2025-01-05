@@ -4,12 +4,12 @@ date: 2016-04-02
 tags:
 - AWS
 - IoT
-- Pub/Sub
+- PubSub
 - Javascript
 - Webapp
 title: Serverless Pub Sub with AWS IoT
 categories:
-lastMod: 2025-01-02
+lastMod: 2025-01-03
 ---
 I'm currently very interested in serverless (aka no dedicated backend required) JavaScript Web Applications ... with AWS S3, Lambda & API Gateway you can actually get pretty far.
 Yet there is one thing I didn't know how to do: Pub/Sub or "Realtime Messaging".

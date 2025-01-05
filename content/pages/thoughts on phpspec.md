@@ -6,7 +6,7 @@ tags:
 - unit testing
 title: thoughts on phpspec
 categories:
-lastMod: 2025-01-02
+lastMod: 2025-01-03
 ---
 As I’ve recently been poked whether I had used phpspec and I had to negate, today I finally gave it a try (doing the Bowling Kata) ...
 
