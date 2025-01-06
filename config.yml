@@ -7,7 +7,7 @@ copyright: "&copy; 2025 Stefan Siegl · all content is [CC-BY-SA](https://creati
 params:
   homeInfoParams:
     Title: Hello World 👋
-    Content: This is my personal collection of random musings, related to stuff I am interested in ... that is web-related development, Software Craft, Cycling ...
+    Content: This is my personal collection of random musings, related to stuff I am interested in ... that is web-related development, Software Craft, Cycling. Consider it my personal digital garden, where I share some of my (unfinished) thoughts, which might just be the spark someone else needs. If you have questions or one of these notes helped you, feel free to let me know :)
 
   socialIcons: # optional
     - name: "github"
