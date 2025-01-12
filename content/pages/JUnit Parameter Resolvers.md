@@ -1,12 +1,14 @@
 ---
 category: TIL
 date: 2024-12-11
+lastmod: 2024-12-11
 tags:
 - JUnit
 - cadiff
+status: budding
 title: JUnit Parameter Resolvers
 categories: TIL
-lastMod: 2025-01-05
+lastMod: 2024-12-11
 ---
 Today (err, recently) I learned ... that [JUnit's extension API allows for parameter resolvers](https://junit.org/junit5/docs/current/user-guide/#extensions-parameter-resolution). These kick in every time you use arguments on a test method, lifecycle method or class constructor. For me, so far, none of these methods ever took an argument. But turns out, it's possible ... and even useful.
 

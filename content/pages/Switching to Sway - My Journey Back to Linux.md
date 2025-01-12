@@ -5,9 +5,10 @@ tags:
 - wayland
 date: 2025-01-02
 description: I recently switched from i3 to the Sway window manager on Ubuntu Linux 24.04, exploring its flexibility and learning to configure it for my needs. I customized keybindings, set up tools like swayidle and swaylock-effects for screen locking, and used kanshi for monitor management and mako for notifications. While it required more manual effort than GNOME or macOS, the result is a highly personalized and functional setup.
+status: budding
 title: Switching to Sway - My Journey Back to Linux
 categories:
-lastMod: 2025-01-05
+lastMod: 2025-01-12
 ---
 A few days ago, I switched to the [Sway](https://swaywm.org/) window manager after returning to GNU/Linux a few months ago. Before spending a few years in the macOS ecosystem, I was a long-time user of i3. For those unfamiliar, i3 and Sway perform the same function, but i3 is built for X.org while Sway is designed for Wayland. In this post, I’ll share my impressions, lessons learned, and the challenges I faced during this transition.
 
@@ -76,10 +77,11 @@ profile laptop-only {
 }
 ```
 
+To find which outputs are there, what their respectives names are and/or which resolutions they support, run `swaymsg  -t get_outputs`.
 
 My external monitor runs at 4K with a scale of 2, while the laptop display doesn’t use scaling. To ensure everything starts automatically and to manage workspaces between monitors, I added these lines to my Sway config:
 
-```
+```sway
 bindsym $mod+w focus output HDMI-A-1
 bindsym $mod+v focus output eDP-1
 
@@ -97,6 +99,12 @@ Sway doesn’t include a built-in notification daemon. I chose [mako](https://gi
 exec mako
 ```
 
-## Final Thoughts
+## Screenshare
 
-Switching to Sway has been an exciting journey filled with challenges and opportunities to learn. While it lacks the "plug-and-play" experience of GNOME or macOS, its flexibility allows for a truly personalized setup. If you enjoy tinkering and configuring your environment to suit your needs, Sway is a fantastic choice.
+Turns out you need to have a look into screen sharing as well. Was a not so nice experience when I wanted to share my screen in a meeting and noticed, that Chromium no longer is able to do that.
+
+To fix this
+
+  + make sure to install `xdg-desktop-portal-wlr` and
+
+  + add the following to sway config `exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway`

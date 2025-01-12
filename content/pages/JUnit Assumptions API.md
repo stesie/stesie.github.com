@@ -4,9 +4,11 @@ tags:
 - TIL
 - JUnit
 date: 2024-08-24
+lastmod: 2024-08-24
+status: budding
 title: JUnit Assumptions API
 categories: TIL
-lastMod: 2025-01-05
+lastMod: 2024-08-24
 ---
 Today, I discovered a powerful feature in JUnit: the [Assumptions API](https://junit.org/junit5/docs/5.0.0/api/org/junit/jupiter/api/Assumptions.html). This API allows you to define assumptions for your tests. If an assumption isn't met, the test execution is **aborted** rather than marked as failed. This distinction is crucial in scenarios like conditional test execution in CI pipelines. When a test is skipped due to an unmet assumption, it appears as "skipped" in the test reports, not as "passed" or "failed."
 

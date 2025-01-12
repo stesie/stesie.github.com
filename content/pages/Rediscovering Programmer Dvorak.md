@@ -4,9 +4,10 @@ tags:
 - sway
 - Dvorak
 description: About 15 years ago, I stumbled upon the Programmer Dvorak keyboard layout, which completely changed how I thought about typing. This Christmas, I decided to see if my fingers still remembered the layout, and to my surprise, they did—better than my mind could! The experience reignited my love for customizing tools, and I even set up my current system to bring back the layout, blending nostalgia with practicality.
+status: seedling
 title: Rediscovering Programmer Dvorak
 categories:
-lastMod: 2025-01-05
+lastMod: 2025-01-12
 ---
 About 15 years ago, I stumbled upon the Dvorak keyboard layout, an alternative to the ubiquitous QWERTY layout designed for ergonomic and efficient typing. During my exploration, I discovered Roland Kaufmann’s blog post on the [Programmer Dvorak Keyboard Layout](https://www.kaufmann.no/roland/dvorak/), which resonated deeply with me. Kaufmann thoughtfully considered the symbols developers frequently use and how they align with the Dvorak philosophy of optimizing for typing efficiency.
 
@@ -75,10 +76,6 @@ input "type:keyboard" {
 
 This setup builds upon the default Programmer Dvorak (`us(dvp)`) layout, reconfigures the top row for natural numeric order, and maps German umlauts to AltGr combinations.
 
-## The Joy of Rediscovery
+## The Aftermath
 
-Reconnecting with Programmer Dvorak reminded me of the joy of tinkering and optimizing tools for personal preferences. While the standard DE layout is practical, Programmer Dvorak is like revisiting an old friend—familiar, efficient, and uniquely mine.
-
-Whether this experiment will lead to a permanent switch remains to be seen, but for now, I’m enjoying the nostalgia and rediscovering the charm of a layout tailored for my typing habits.
-
-PS: d'accord, in this last section the LLM went a little bit wild (actually it completely made it up), but I like the gist of it, yet my words would have been different 😅
+While reconnecting with Programmer Dvorak definitely was a nice experiment, ... I switched back to regular German keyboard layout after the Christmas break. While regular typing went decently well, I struggled and didn't feel well with the keyboard shortcuts (for example in IntelliJ), many of them get awkward easily.
