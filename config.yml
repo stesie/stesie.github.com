@@ -2,7 +2,7 @@ baseURL: https://stesie.github.io
 languageCode: en-us
 title: stesie's musings
 theme: "PaperMod"
-copyright: "&copy; 2025 Stefan Siegl · all content is [CC-BY-SA](https://creativecommons.org/licenses/by-sa/4.0/deed)"
+copyright: "&copy; 2025 Stefan Siegl · all content is [CC-BY-SA](https://creativecommons.org/licenses/by-sa/4.0/deed) · [Terms of Service](https://www.swyx.io/digital-garden-tos#for-visitors)"
 
 params:
   homeInfoParams:
