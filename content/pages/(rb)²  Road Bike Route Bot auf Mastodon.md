@@ -5,13 +5,14 @@ tags:
 - Geodaten
 - Mastodon
 - OpenStreetMap
+canonicalurl: https://blog.mayflower.de/12803-mastodon-bot.html
+showcanonicallink: true
+status: evergreen
+lastmod: 2022-05-09
 title: (rb)² – Road Bike Route Bot auf Mastodon
 categories:
-lastMod: 2025-01-03
+lastMod: 2022-05-09
 ---
-{{< logseq/orgIMPORTANT >}}This was initially published on https://blog.mayflower.de/12803-mastodon-bot.html
-{{< / logseq/orgIMPORTANT >}}
-
 Ein Erfahrungsbericht, weil ich …
 
   + mal wieder was mit Geodaten machen wollte (und mich OpenStreetMap schon eine ganze Weile immer wieder umtreibt)
