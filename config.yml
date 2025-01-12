@@ -1,13 +1,22 @@
-baseURL: https://stesie.github.io
+baseURL: https://stefansiegl.de
 languageCode: en-us
-title: stesie's musings
+title: ~stesie's musings
 theme: "PaperMod"
 copyright: "&copy; 2025 Stefan Siegl · all content is [CC-BY-SA](https://creativecommons.org/licenses/by-sa/4.0/deed) · [Terms of Service](https://www.swyx.io/digital-garden-tos#for-visitors)"
 
 params:
   homeInfoParams:
     Title: Hello World 👋
-    Content: This is my personal collection of random musings, related to stuff I am interested in ... that is web-related development, Software Craft, Cycling. Consider it my personal digital garden, where I share some of my (unfinished) thoughts, which might just be the spark someone else needs. If you have questions or one of these notes helped you, feel free to let me know :)
+    Content: |
+      This is my (Stefan ~stesie Siegl) personal collection of random musings,
+      related to stuff I am interested in ... that is web-related development,
+      Software Craft, Cycling. Consider it my personal digital garden, where I
+      learn in public and share some of my (sometimes even *unfinished*)
+      thoughts, which might just be the spark someone else needs. Recent posts
+      also have a
+      [status indicator](/2025/01/learning-out-loud/#finished-ness-status-indication).  
+      If you have questions or one of these notes helped you, please let
+      me know :)
 
   socialIcons: # optional
     - name: "github"
@@ -17,7 +26,7 @@ params:
     - name: "mastodon"
       url: "https://wue.social/@rolf"
     - name: "rss"
-      url: "https://stesie.github.io/feed.xml"
+      url: "https://stefansiegl.de/feed.xml"
     - name: "email"
       url: "mailto:mail@stefansiegl.de"
     - name: "strava"
