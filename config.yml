@@ -30,6 +30,7 @@ params:
     #   url: "https://buymeacoffee.com/XXX"
     # - name: "rss"
     #   url: "https://XXX.github.io/index.xml"
+  DateFormat: Jan 2, 2006
   ShowReadingTime: true
   author: "Stefan Siegl"
   contact: "stesie@brokenpipe.de"
