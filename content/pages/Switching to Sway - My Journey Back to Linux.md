@@ -8,13 +8,15 @@ description: I recently switched from i3 to the Sway window manager on Ubuntu Li
 status: budding
 title: Switching to Sway - My Journey Back to Linux
 categories:
-lastMod: 2025-01-12
+lastMod: 2025-01-16
 ---
 A few days ago, I switched to the [Sway](https://swaywm.org/) window manager after returning to GNU/Linux a few months ago. Before spending a few years in the macOS ecosystem, I was a long-time user of i3. For those unfamiliar, i3 and Sway perform the same function, but i3 is built for X.org while Sway is designed for Wayland. In this post, I’ll share my impressions, lessons learned, and the challenges I faced during this transition.
 
 ## The Starting Point
 
-Currently, I’m using Ubuntu Linux version 24.04 (*noble*). Installing Sway was straightforward since it’s packaged for Ubuntu. A simple `apt install sway`, logging out of GNOME, and selecting Sway at the login screen were enough to get started. Having used i3 before, I wasn’t entirely lost.
+Currently, ~~I’m using Ubuntu Linux version 24.04 (*noble*)~~. Installing Sway was straightforward since it’s packaged for Ubuntu. A simple `apt install sway`, logging out of GNOME, and selecting Sway at the login screen were enough to get started. Having used i3 before, I wasn’t entirely lost.
+
+I've started using Arch Linux meanwhile. Installation works equally smooth there, just `pacman -S sway`
 
 ## Global Keybindings (Media Keys, Power Button, etc.)
 
@@ -32,6 +34,7 @@ I dug up my seven-year-old i3 configuration for inspiration and adapted it to Sw
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 bindsym --locked XF86MonBrightnessUp exec sudo brightnessctl s '10%+'
 bindsym --locked XF86MonBrightnessDown exec sudo brightnessctl s '10%-'
@@ -69,11 +72,11 @@ Previously, I used autorandr with i3 for automatic monitor configuration. The Wa
 ```
 profile home {
   output "Samsung Electric Company U28E850 HTPK300903" mode 3840x2160 position 0,0 scale 2
-  output eDP-1 mode 1920x1080 position 1920,0
+  output eDP-1 mode 1920x1200 position 1920,0
 }
 
 profile laptop-only {
-  output eDP-1 mode 1920x1080 position 0,0
+  output eDP-1 mode 1920x1200 position 0,0
 }
 ```
 
@@ -89,7 +92,10 @@ bindsym $mod+shift+w move workspace to output HDMI-A-1
 bindsym $mod+shift+v move workspace to output eDP-1
 
 exec kanshi
+exec_always kill -1 $(pidof kanshi)
 ```
+
+The `exec_always` makes sure that upon sway reconfiguration kanshi is also re-triggered. Otherwise sway would configure the screens itself.
 
 ## Desktop Notifications
 
@@ -97,6 +103,14 @@ Sway doesn’t include a built-in notification daemon. I chose [mako](https://gi
 
 ```
 exec mako
+```
+
+## Screenshots
+
+I've decided to go with and bound it to the `Print` key (Fn + F9 on my ThinkPad E14). I prefer to just copy the screenshot to the clipboard, ... usually I'm just pasting it to the next chat window anyways.
+
+```
+bindsym Print exec grimshot copy area
 ```
 
 ## Screenshare
