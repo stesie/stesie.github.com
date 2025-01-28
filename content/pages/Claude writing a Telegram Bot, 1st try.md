@@ -392,3 +392,6 @@ If I wanted to nitpick on the code, ...
   + arguably it's unnecessary to create a temporary file ... especially since I asked it to remove the temp file, when it passes the scaled image to the LLM ... it could have thought of not using a temp file for the file download
 
 ... but hey, nothing too weird. Would it be in a code review, I likely asked to change the former and ignored the latter. And in the end, it just works, therefore I take it as it is 🙂
+
+{{< logseq/orgNOTE >}}There's a follow-up to this article, where I tried a much more concise way of prompting and compare the results: [Claude writing a Telegram Bot, 2nd try]({{< ref "/pages/Claude writing a Telegram Bot, 2nd try" >}}).
+{{< / logseq/orgNOTE >}}
