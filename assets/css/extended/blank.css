@@ -3,3 +3,28 @@
     padding: 1em;
     margin-bottom: 1em;
 }
+
+.quote-request.quote-request {
+    background: rgba(0, 128, 128, 0.1);
+    border-inline-start-color: rgb(0, 128, 128);
+
+    width: 90%;
+}
+
+.quote-response.quote-response {
+    background: rgba(128, 0, 128, 0.1);
+    border-inline-start-color: rgb(128, 0, 128);
+
+    width: 90%;
+    margin-left: 10%;
+}
+
+.quote-request::before {
+    content: "Request:";
+    color: rgb(0, 128, 128);
+}
+
+.quote-response::before {
+    content: "Response:";
+    color: rgb(128, 0, 128);
+}

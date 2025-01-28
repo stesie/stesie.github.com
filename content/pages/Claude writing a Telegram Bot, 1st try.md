@@ -11,7 +11,7 @@ title: Claude writing a Telegram Bot, 1st try
 categories:
 - Chat Dialogs
 date: 2025-01-27
-lastMod: 2025-01-27
+lastMod: 2025-01-28
 ---
 This post is the first part, in a mini series (I'm aiming for three posts in a row), where I try prompting Claude with different levels of verbosity and compare the results. Below you'll find results of my initial try in using Claude to write a Telegram Bot.
 
@@ -31,27 +31,27 @@ Furthermore I haven't used Claude much before. But I heard that Claude would be 
 
 As I'm just on the free tier, and there was much traffic on their site, Claude 3.5 Sonnet wasn't available. Therefore I went with the Haiku model. Going step by step, I started out asking how it would write a bot in the first place
 
-> Which JavaScript library would you use to create a telegram bot, that I would want to send images to?
+{{< logseq/orgREQUEST >}}Which JavaScript library would you use to create a telegram bot, that I would want to send images to?
+{{< / logseq/orgREQUEST >}}
 
-Response: 
-> For creating a Telegram bot in JavaScript that can send images, I recommend using the `node-telegram-bot-api` library. It provides a straightforward way to interact with the Telegram Bot API and supports sending images easily. Here's a quick example:
+{{< logseq/orgRESPONSE >}}For creating a Telegram bot in JavaScript that can send images, I recommend using the `node-telegram-bot-api` library. It provides a straightforward way to interact with the Telegram Bot API and supports sending images easily. Here's a quick example:
 
 ```javascript
 const TelegramBot = require('node-telegram-bot-api');
 const bot = new TelegramBot(token, {polling: true});
-- // Sending an image
+// Sending an image
 bot.sendPhoto(chatId, 'path/to/image.jpg');
 ```
 
-> The library handles image uploads, supports various methods for sending media, and provides a robust set of features for Telegram bot development.
+The library handles image uploads, supports various methods for sending media, and provides a robust set of features for Telegram bot development.
+{{< / logseq/orgRESPONSE >}}
 
 Ok, so it misunderstood me, that I want to _send_ images. No idea how that comes, but let's correct it right away:
 
-> No, I wouldn't want the bot to send images, but receive them. Does this library handle it anyways?
+{{< logseq/orgREQUEST >}}No, I wouldn't want the bot to send images, but receive them. Does this library handle it anyways?
+{{< / logseq/orgREQUEST >}}
 
-Response:
-
-> Yes, `node-telegram-bot-api` handles receiving images as well. Here's a simple example:
+{{< logseq/orgRESPONSE >}}Yes, `node-telegram-bot-api` handles receiving images as well. Here's a simple example:
 
 ```javascript
 bot.on('photo', (msg) => {
@@ -60,15 +60,15 @@ bot.on('photo', (msg) => {
 });
 ```
 
-> The library provides methods to access image metadata and download received images, making it convenient for handling image uploads to your Telegram bot.
+The library provides methods to access image metadata and download received images, making it convenient for handling image uploads to your Telegram bot.
+{{< / logseq/orgRESPONSE >}}
 
 Ok, seems like this could work. So let's just move on to resizing the image. The camera image will initially be quite large. OpenAI doesn't accept images bigger than 2048px anyways, and it's billing by block sizes of 512x512 pixels,  ... so let's see how we can shrink the image
 
-> ok, fine. This image can be pretty big in size. How would you scale the image so it's longer edge doesn't have more than roughly 1000 pixels ?
+{{< logseq/orgREQUEST >}}ok, fine. This image can be pretty big in size. How would you scale the image so it's longer edge doesn't have more than roughly 1000 pixels ?
+{{< / logseq/orgREQUEST >}}
 
-Response:
-
-> I'll demonstrate how to resize an image using the Sharp library in Node.js:
+{{< logseq/orgRESPONSE >}}I'll demonstrate how to resize an image using the Sharp library in Node.js:
 
 ```javascript
 const sharp = require('sharp');
@@ -87,19 +87,19 @@ bot.on('photo', async (msg) => {
 });
 ```
 
-> This code:
-> * Retrieves the highest resolution photo file
-> * Uses Sharp to resize, maintaining aspect ratio
-> * Ensures no edge exceeds 1000 pixels
-> * Prevents image enlargement if smaller
+This code:
+* Retrieves the highest resolution photo file
+* Uses Sharp to resize, maintaining aspect ratio
+* Ensures no edge exceeds 1000 pixels
+* Prevents image enlargement if smaller
+{{< / logseq/orgRESPONSE >}}
 
 Ok, that was easy. So let's ask it to connect to OpenAI's GPT API. Admittedly asking Claude to do so feels a little bit mean ...
 
-> Nice! ok, so how would I send this image to OpenAI GPT API to run image recognition along with a prompting message "Wie lautet der Zählerstand auf dem Foto des Gaszählers. Die Zahl hat fünf Ziffern vor dem Komma und drei Nachkommastellen. Gib nur die Zahl aus, keinen Text davor oder danach" ?
+{{< logseq/orgREQUEST >}}Nice! ok, so how would I send this image to OpenAI GPT API to run image recognition along with a prompting message "Wie lautet der Zählerstand auf dem Foto des Gaszählers. Die Zahl hat fünf Ziffern vor dem Komma und drei Nachkommastellen. Gib nur die Zahl aus, keinen Text davor oder danach" ?
+{{< / logseq/orgREQUEST >}}
 
-Response:
-
-> Here's a code snippet to send the image to OpenAI's API with the specified prompt:
+{{< logseq/orgRESPONSE >}}Here's a code snippet to send the image to OpenAI's API with the specified prompt:
 
 ```javascript
 const axios = require('axios');
@@ -148,20 +148,20 @@ bot.on('photo', async (msg) => {
 });
 ```
 
-> Note: Requires setting `OPENAI_API_KEY` environment variable.
+Note: Requires setting `OPENAI_API_KEY` environment variable.
+{{< / logseq/orgRESPONSE >}}
 
 Looks good so far. It cannot know that the model is no longer in preview. So let's tell it that.
 I also wonder why it's using `axios` over `node-fetch`, but likely it just has seen more examples with that one.
 
 I'm not sure why it's using the temp file, therefore let's briefly ask it:
 
-> ok, cool. you can just assume that meanwhile there is a model named gpt-4o-mini that's good to use.
->
-> one question to the code, do I really need to create a temporary file on disk? (resized-image.jpg as you've called it)
+{{< logseq/orgREQUEST >}}ok, cool. you can just assume that meanwhile there is a model named gpt-4o-mini that's good to use.
 
-Response:
+one question to the code, do I really need to create a temporary file on disk? (resized-image.jpg as you've called it)
+{{< / logseq/orgREQUEST >}}
 
-> No, you don't need to create a temporary file. You can resize the image directly in memory using Sharp's buffer methods:
+{{< logseq/orgRESPONSE >}}No, you don't need to create a temporary file. You can resize the image directly in memory using Sharp's buffer methods:
 
 ```javascript
 const axios = require('axios');
@@ -209,15 +209,15 @@ bot.on('photo', async (msg) => {
 });
 ```
 
-> This approach avoids creating a temporary file on disk.
+This approach avoids creating a temporary file on disk.
+{{< / logseq/orgRESPONSE >}}
 
 Okay, looks good on first sight. So let's move on to the last step: saving things to the database:
 
-> Very nice! Last but not least, how would I connect to a PostgreSQL database and insert a new record into a table called `gas_meter`, simply storing the number returned from the GPT model along with the current timestamp?
+{{< logseq/orgREQUEST >}}Very nice! Last but not least, how would I connect to a PostgreSQL database and insert a new record into a table called `gas_meter`, simply storing the number returned from the GPT model along with the current timestamp?
+{{< / logseq/orgREQUEST >}}
 
-Response:
-
-> Here's how to connect to PostgreSQL and insert the gas meter reading:
+{{< logseq/orgRESPONSE >}}Here's how to connect to PostgreSQL and insert the gas meter reading:
 
 ```javascript
 const { Pool } = require('pg');
@@ -244,20 +244,20 @@ bot.on('photo', async (msg) => {
 });
 ```
 
-> This code:
->
-> * Uses pg library for PostgreSQL connection
-> * Connects via DATABASE_URL environment variable
-> * Inserts reading with current timestamp
-> * Handles connection and potential errors
+This code:
+
+* Uses pg library for PostgreSQL connection
+* Connects via DATABASE_URL environment variable
+* Inserts reading with current timestamp
+* Handles connection and potential errors
+{{< / logseq/orgRESPONSE >}}
 
 I've seen before, that GPT uses a comma, instead of a dot, to separate the decimal places. Let's help Claude ...
 
-> Take into account, that the GPT may answer in German locale, so using a comma as a decimal separator. The database should save the value as a floating point number
+{{< logseq/orgREQUEST >}}Take into account, that the GPT may answer in German locale, so using a comma as a decimal separator. The database should save the value as a floating point number
+{{< / logseq/orgREQUEST >}}
 
-Response:
-
-> Here's the updated code to handle German number format:
+{{< logseq/orgRESPONSE >}}Here's the updated code to handle German number format:
 
 ```javascript
 bot.on('photo', async (msg) => {
@@ -279,103 +279,103 @@ bot.on('photo', async (msg) => {
 });
 ```
 
-> Key changes:
->
-> * Replace comma with dot
-> * Use parseFloat() to convert to a proper floating-point number
-> * Directly pass to PostgreSQL query
+Key changes:
+
+* Replace comma with dot
+* Use parseFloat() to convert to a proper floating-point number
+* Directly pass to PostgreSQL query
+{{< / logseq/orgRESPONSE >}}
 
 Ok, so we have all pieces together. Let's ask it to combine everything
 
-> Cool. So now let's piece everything together. Create a Telegram bot in JavaScript language, that takes an images, scales it to not eat too many tokens. Feed it through GPT to read the number and store it to the database please!
+{{< logseq/orgREQUEST >}}Cool. So now let's piece everything together. Create a Telegram bot in JavaScript language, that takes an images, scales it to not eat too many tokens. Feed it through GPT to read the number and store it to the database please!
+{{< / logseq/orgREQUEST >}}
 
-Response:
-
-> Requirements before running:
-> 1. Set environment variables:
->    * TELEGRAM_BOT_TOKEN
->    * OPENAI_API_KEY
->    * DATABASE_URL
-> 2. Install dependencies: npm install node-telegram-bot-api pg sharp axios
-> 3. Ensure PostgreSQL table exists with schema: CREATE TABLE gas_meter (reading FLOAT, timestamp TIMESTAMP);
+{{< logseq/orgRESPONSE >}}Requirements before running:
+1. Set environment variables:
+   * TELEGRAM_BOT_TOKEN
+   * OPENAI_API_KEY
+   * DATABASE_URL
+2. Install dependencies: npm install node-telegram-bot-api pg sharp axios
+3. Ensure PostgreSQL table exists with schema: CREATE TABLE gas_meter (reading FLOAT, timestamp TIMESTAMP);
+{{< / logseq/orgRESPONSE >}}
 
 I like having .env files, at least while running stuff locally. So let's ask it to add dotenv:
 
-> Modify the code so that it optionally reads from an .env file, if it exists
+{{< logseq/orgREQUEST >}}Modify the code so that it optionally reads from an .env file, if it exists
+{{< / logseq/orgREQUEST >}}
 
-Response:
+{{< logseq/orgRESPONSE >}}[telegram-gas-meter-bot.js, second version](https://github.com/stesie/gaszaehler-bot-1/blob/2c4012df8d4d5bbffc171448176e20689789df08/telegram-gas-meter-bot.js)
 
-> [telegram-gas-meter-bot.js, second version](https://github.com/stesie/gaszaehler-bot-1/blob/2c4012df8d4d5bbffc171448176e20689789df08/telegram-gas-meter-bot.js)
-
-> Key changes: 
-> * Added check for .env file existence
-> * Uses dotenv to load environment variables if file exists
-> * Requires minimal additional setup
+Key changes: 
+* Added check for .env file existence
+* Uses dotenv to load environment variables if file exists
+* Requires minimal additional setup
+{{< / logseq/orgRESPONSE >}}
 
 Ok, so it was easy to run now. However it didn't work. Giving Claude a clue:
 
-> First of all, connection to telegram API seems to work just fine. However it fails to process the image with the following error message
->
-> Error processing gas meter reading: Error: Input file is missing: photos/file_0.jpg
->
-> Any idea on that one?
->
-> And adding to that, what do you think of adding more log output to the code?
+{{< logseq/orgREQUEST >}}First of all, connection to telegram API seems to work just fine. However it fails to process the image with the following error message
 
-Response:
+Error processing gas meter reading: Error: Input file is missing: photos/file_0.jpg
 
-> The error suggests the bot isn't correctly downloading the Telegram file. Here's an improved version with more logging and file download:
+Any idea on that one?
 
-> [telegram-gas-meter-bot.js, third version](https://github.com/stesie/gaszaehler-bot-1/blob/296e94d528fc904db2a083ce37e768264fd6a410/telegram-gas-meter-bot.js)
+And adding to that, what do you think of adding more log output to the code?
+{{< / logseq/orgREQUEST >}}
 
-> Key changes:
->
-> * Added custom file download function
-> * Extensive console logging
-> * Explicit file URL construction
-> * Added file cleanup in finally block
-> * Log at bot startup
->
-> This version should:
-> 
-> 1. Explicitly download the file from Telegram
-> 2. Provide more detailed logging
-> 3. Handle file download errors more robustly
+{{< logseq/orgRESPONSE >}}The error suggests the bot isn't correctly downloading the Telegram file. Here's an improved version with more logging and file download:
+
+[telegram-gas-meter-bot.js, third version](https://github.com/stesie/gaszaehler-bot-1/blob/296e94d528fc904db2a083ce37e768264fd6a410/telegram-gas-meter-bot.js)
+
+Key changes:
+* Added custom file download function
+* Extensive console logging
+* Explicit file URL construction
+* Added file cleanup in finally block
+* Log at bot startup
+
+This version should:
+ 
+1. Explicitly download the file from Telegram
+2. Provide more detailed logging
+3. Handle file download errors more robustly
+{{< / logseq/orgRESPONSE >}}
 
 Getting closer, it messed up with the temp file ([in line 55 here](https://github.com/stesie/gaszaehler-bot-1/blob/296e94d528fc904db2a083ce37e768264fd6a410/telegram-gas-meter-bot.js#L55) it's assigning a `const` within the `try` block ... however that's out of scope in the `finally` block). Let's tell it ...
 
->  nice, almost works. the GPT call is correct and the value is even stored to the database.
->
-> However it fails to delete the file in the end, error message is this one:
->
-> ReferenceError: localFilePath is not defined
->
-> ... that leads me to the question, is it safe to assume the current directory is writable and we can hardcode a filename? shouldn't this go to the temp directory and use a random filename instead?
+{{< logseq/orgREQUEST >}} nice, almost works. the GPT call is correct and the value is even stored to the database.
 
-Response:
+However it fails to delete the file in the end, error message is this one:
 
-> You're right. Here's an improved version using the system's temp directory and a random filename:
+ReferenceError: localFilePath is not defined
 
-> [telegram-gas-meter-bot.js, fourth version](https://github.com/stesie/gaszaehler-bot-1/blob/272f11e3e09e90d751d8ce48c5cbb384deb438ba/telegram-gas-meter-bot.js)
+... that leads me to the question, is it safe to assume the current directory is writable and we can hardcode a filename? shouldn't this go to the temp directory and use a random filename instead?
+{{< / logseq/orgREQUEST >}}
 
-> Key changes:
-> * Use os.tmpdir() for temporary file location
-> * Generate random filename with crypto.randomBytes()
-> * Add null check for localFilePath before deletion
+{{< logseq/orgRESPONSE >}}You're right. Here's an improved version using the system's temp directory and a random filename:
+
+[telegram-gas-meter-bot.js, fourth version](https://github.com/stesie/gaszaehler-bot-1/blob/272f11e3e09e90d751d8ce48c5cbb384deb438ba/telegram-gas-meter-bot.js)
+
+Key changes:
+* Use os.tmpdir() for temporary file location
+* Generate random filename with crypto.randomBytes()
+* Add null check for localFilePath before deletion
+{{< / logseq/orgRESPONSE >}}
 
 Yay, it found out, that it needs a `let` before the `try`/`catch` 🙂
 That one was actually working well. I just noticed that it would be nice to have some feedback
 
-> Please also make the bot reply with the meter reading, so as a user I have some feedback that everything worked successfully and can also verify, that the value was indeed read correctly
+{{< logseq/orgREQUEST >}}Please also make the bot reply with the meter reading, so as a user I have some feedback that everything worked successfully and can also verify, that the value was indeed read correctly
+{{< / logseq/orgREQUEST >}}
 
-Response
+{{< logseq/orgRESPONSE >}}[telegram-gas-meter-bot.js, fifth version](https://github.com/stesie/gaszaehler-bot-1/blob/9d4a5076657a98f71e41ef26d7af1035c23ec5ed/telegram-gas-meter-bot.js)
 
-> [telegram-gas-meter-bot.js, fifth version](https://github.com/stesie/gaszaehler-bot-1/blob/9d4a5076657a98f71e41ef26d7af1035c23ec5ed/telegram-gas-meter-bot.js)
-
-> Changes:
-> * Added bot.sendMessage() to reply with meter reading
-> * Added error message if processing fails
-> * Uses German language for messages
+Changes:
+* Added bot.sendMessage() to reply with meter reading
+* Added error message if processing fails
+* Uses German language for messages
+{{< / logseq/orgRESPONSE >}}
 
 ## Summary
 
