@@ -28,3 +28,20 @@
     content: "Response:";
     color: rgb(128, 0, 128);
 }
+
+.admonition {
+    display: flex;
+    background: var(--code-bg);
+    padding: 1rem;
+}
+
+.admonition-icon {
+    padding-right: 1rem;
+    font-size: 3rem;
+    border-right: 1px solid #aaa;
+}
+
+.admonition-body {
+    margin-left: 1rem;
+}
+

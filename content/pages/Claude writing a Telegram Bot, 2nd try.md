@@ -11,13 +11,16 @@ title: Claude writing a Telegram Bot, 2nd try
 categories:
 - Chat Dialogs
 date: 2025-01-28
-lastMod: 2025-01-28
+lastMod: 2025-01-30
 ---
 This is the second part of the mini series on writing Telegram bots to read my gas meter using Claude.
 
-Like in the first round, I will first show the full dialog I've used to let it generate the implementation. Then following up with a discussion of the code and some final thoughts.
+{{< logseq/orgNOTE >}}This post belongs to a mini series (I'm aiming for three posts in a row), where I try prompting Claude with different levels of verbosity and compare the results:
+* In [Claude writing a Telegram Bot, 1st try]({{< ref "/pages/Claude writing a Telegram Bot, 1st try" >}}) I'm using an elaborate, step-by-step prompting strategy with Haiku model
+* In [Claude writing a Telegram Bot, 2nd try]({{< ref "/pages/Claude writing a Telegram Bot, 2nd try" >}}) I was aiming for a (still pretty detailed) one-shot prompt
+{{< / logseq/orgNOTE >}}
 
-If you've missed the first part, and to get started on what this is all about, read this article first: [Claude writing a Telegram Bot, 1st try]({{< ref "/pages/Claude writing a Telegram Bot, 1st try" >}}) :-)
+Like in the first round, I will first show the full dialog I've used to let it generate the implementation. Then following up with a discussion of the code and some final thoughts.
 
 This time, I aim to provide a more concise approach by offering a single prompt that encompasses all the necessary steps to achieve our goal.
 
@@ -117,10 +120,12 @@ const base64Image = Buffer.from(imageBuffer).toString('base64');
 
 Furthermore, the way it's (not) handling errors from the LLM invokation, it would not remove the temporary file, if the LLM invocation fails.
 
+As mentioned earlier, the above code was produced by Claude 3.5 **Haiku**. I've later on tried the same prompt with Sonnet, and that just directly converted the `ArrayBuffer` as shown by me.
+
 ## Final thoughts
 
 All in all another nice solution to the problem, that just works fine :-)
 
-This demonstrates that it's not always essential to be overly wordy when giving guidance, unlike how I initially did. However, breaking it down into individual steps, like I did previously, also aids in my understanding of the necessary actions. Moreover, since I haven't created a Telegram bot before and it's been a while since I've scaled an image using Node.js, examining code samples in detail has helped me gain insights.
+This demonstrates that it's not always essential to be overly wordy when giving guidance, unlike I initially did. However, breaking it down into individual steps, also aids personal understanding. Moreover, since I haven't created a Telegram bot before and it's been a while since I've scaled an image using Node.js, examining code samples in detail has helped me gain insights.
 
 Observing the variations in how the `sharp` library is used with the `.resize(...)` function, it brings to mind the differing approaches that two human developers might take when writing code. Similar to Claude's example, it is possible for two individuals to reach different conclusions, with one opting to manually calculate the aspect ratio and the other choosing to utilize the library's built-in features.

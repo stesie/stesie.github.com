@@ -11,9 +11,14 @@ title: Claude writing a Telegram Bot, 1st try
 categories:
 - Chat Dialogs
 date: 2025-01-27
-lastMod: 2025-01-28
+lastMod: 2025-01-30
 ---
-This post is the first part, in a mini series (I'm aiming for three posts in a row), where I try prompting Claude with different levels of verbosity and compare the results. Below you'll find results of my initial try in using Claude to write a Telegram Bot.
+Below you'll find results of my initial try in using Claude to write a Telegram Bot.
+
+{{< logseq/orgNOTE >}}This post belongs to a mini series (I'm aiming for three posts in a row), where I try prompting Claude with different levels of verbosity and compare the results:
+* In [Claude writing a Telegram Bot, 1st try]({{< ref "/pages/Claude writing a Telegram Bot, 1st try" >}}) I'm using an elaborate, step-by-step prompting strategy with Haiku model
+* In [Claude writing a Telegram Bot, 2nd try]({{< ref "/pages/Claude writing a Telegram Bot, 2nd try" >}}) I was aiming for a (still pretty detailed) one-shot prompt
+{{< / logseq/orgNOTE >}}
 
 My ultimate goal is to figure out how much gas I need to heat my apartment. The gas meter is located in the hallway outside my apartment and doesn't have a digital interface to tap into. Since I just rent the place and the meter is outside the apartment, I can't tinker with it. The idea is to snap a quick picture of the meter in the morning and evening, or whenever I feel like it. Just in passing... and have the value automatically stored in a database for future analysis.
 
