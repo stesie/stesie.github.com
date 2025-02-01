@@ -1,7 +1,6 @@
 ---
 category: TIL
 date: 2024-12-11
-lastmod: 2024-12-11
 tags:
 - JUnit
 - cadiff

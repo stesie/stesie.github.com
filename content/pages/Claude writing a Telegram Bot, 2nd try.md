@@ -7,17 +7,18 @@ tags:
 - Telegram
 - Image Recognition
 status: seedling
+date: 2025-01-28
 title: Claude writing a Telegram Bot, 2nd try
 categories:
 - Chat Dialogs
-date: 2025-01-28
 lastMod: 2025-01-30
 ---
 This is the second part of the mini series on writing Telegram bots to read my gas meter using Claude.
 
 {{< logseq/orgNOTE >}}This post belongs to a mini series (I'm aiming for three posts in a row), where I try prompting Claude with different levels of verbosity and compare the results:
 * In [Claude writing a Telegram Bot, 1st try]({{< ref "/pages/Claude writing a Telegram Bot, 1st try" >}}) I'm using an elaborate, step-by-step prompting strategy with Haiku model
-* In [Claude writing a Telegram Bot, 2nd try]({{< ref "/pages/Claude writing a Telegram Bot, 2nd try" >}}) I was aiming for a (still pretty detailed) one-shot prompt
+* In [Claude writing a Telegram Bot, 2nd try]({{< ref "/pages/Claude writing a Telegram Bot, 2nd try" >}}) I aim for a detailed one-shot prompt
+* In [Claude writing a Telegram Bot, 3rd try]({{< ref "/pages/Claude writing a Telegram Bot, 3rd try" >}}) I try a rather short one-shot prompt 
 {{< / logseq/orgNOTE >}}
 
 Like in the first round, I will first show the full dialog I've used to let it generate the implementation. Then following up with a discussion of the code and some final thoughts.
@@ -129,3 +130,6 @@ All in all another nice solution to the problem, that just works fine :-)
 This demonstrates that it's not always essential to be overly wordy when giving guidance, unlike I initially did. However, breaking it down into individual steps, also aids personal understanding. Moreover, since I haven't created a Telegram bot before and it's been a while since I've scaled an image using Node.js, examining code samples in detail has helped me gain insights.
 
 Observing the variations in how the `sharp` library is used with the `.resize(...)` function, it brings to mind the differing approaches that two human developers might take when writing code. Similar to Claude's example, it is possible for two individuals to reach different conclusions, with one opting to manually calculate the aspect ratio and the other choosing to utilize the library's built-in features.
+
+{{< logseq/orgNOTE >}}There's a follow-up to this article, where I tried a very short one-shot prompt and compare the results: [Claude writing a Telegram Bot, 3rd try]({{< ref "/pages/Claude writing a Telegram Bot, 3rd try" >}}).
+{{< / logseq/orgNOTE >}}

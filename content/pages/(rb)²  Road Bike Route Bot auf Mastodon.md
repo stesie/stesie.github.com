@@ -8,7 +8,6 @@ tags:
 canonicalurl: https://blog.mayflower.de/12803-mastodon-bot.html
 showcanonicallink: true
 status: evergreen
-lastmod: 2022-05-09
 title: (rb)² – Road Bike Route Bot auf Mastodon
 categories:
 lastMod: 2022-05-09

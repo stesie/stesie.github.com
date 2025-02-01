@@ -4,7 +4,6 @@ tags:
 - TIL
 - JUnit
 date: 2024-08-24
-lastmod: 2024-08-24
 status: budding
 title: JUnit Assumptions API
 categories: TIL
