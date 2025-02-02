@@ -6,19 +6,20 @@ tags:
 - Claude
 - Telegram
 - Image Recognition
-status: seedling
+status: budding
 date: 2025-02-01
 title: Claude writing a Telegram Bot, 3rd try
 categories:
 - Chat Dialogs
-lastMod: 2025-02-01
+lastMod: 2025-02-02
 ---
 This is the third part of the mini series on writing Telegram bots to read my gas meter using Claude.
 
 {{< logseq/orgNOTE >}}This post belongs to a mini series (I'm aiming for three posts in a row), where I try prompting Claude with different levels of verbosity and compare the results:
 * In [Claude writing a Telegram Bot, 1st try]({{< ref "/pages/Claude writing a Telegram Bot, 1st try" >}}) I'm using an elaborate, step-by-step prompting strategy with Haiku model
 * In [Claude writing a Telegram Bot, 2nd try]({{< ref "/pages/Claude writing a Telegram Bot, 2nd try" >}}) I aim for a detailed one-shot prompt
-* In [Claude writing a Telegram Bot, 3rd try]({{< ref "/pages/Claude writing a Telegram Bot, 3rd try" >}}) I try a rather short one-shot prompt 
+* In [Claude writing a Telegram Bot, 3rd try]({{< ref "/pages/Claude writing a Telegram Bot, 3rd try" >}}) I try a rather short one-shot prompt
+* In [Other LLMs writing a Telegram Bot]({{< ref "/pages/Other LLMs writing a Telegram Bot" >}}) I quickly try DeepSeek and some more LLMs 
 {{< / logseq/orgNOTE >}}
 
 Like in the first round, I will once more show the full dialog I've used to let it generate the implementation. Then follow up with a discussion of the code and some final thoughts.
@@ -182,8 +183,28 @@ module.exports = GasMeterBot;
 ```
 ... so it's actually just creating a module ... that it doesn't instantiate anywhere. Which after all is in contrast to the "Setup steps" it brought forward, where it told to run `npm start`. But given that this instruction is commented out, it just will do nothing if started ...
 
+## Comparison with Sonnet
+
+I've also quickly tried exactly the same prompt with Claude 3.5 **Sonnet**, which came up with the following prompt:
+
+```js
+{ 
+  type: "text", 
+  text: "Read the gas meter value in this image. Return only the number with 5 digits before decimal and 3 after. Format: XXXXX.XXX" 
+}
+```
+
+... where it clearly tells GPT which output it expects.
+
+It also refrained from depending on other modules, which it wasn't using.
+
+Neither the temporary file handling issues were present in that code, it just directly converted the `ArrayBuffer` into a `Buffer`, using `Buffer.from`.
+
 ## Conclusion
 
-I think it's fair to say that Claude 3.5 **Haiku** wasn't able to properly cope with the given task. While it does provide a foundation to build upon, it definitely takes a human to address the issues at hand (either fixing directly, or providing further prompts to drive it forward).
+I think it's fair to say that Claude 3.5 **Haiku** wasn't able to properly cope with the given task. While it does provide a foundation to build upon, it definitely takes a human to address the issues at hand (either fixing directly, or providing further prompts to drive it forward). On the other hand it shows, that quite like you would reason about intermediate steps with (lesser experienced) human developers, you need to have this "thinking together" phase with the LLM as well.
 
-On the other hand it shows, that quite like you reason about intermediate steps with human developers, you need to have this "thinking together" phase with the LLM as well.
+The quick comparison with Claude 3.5 **Sonnet** shows, that that one is far more capable and could handle even this task easily.
+
+{{< logseq/orgNOTE >}}There's a follow-up to this article, where I tried the prompt from above against some other popular LLMs from DeepSeek, Meta & OpenAI: [Other LLMs writing a Telegram Bot]({{< ref "/pages/Other LLMs writing a Telegram Bot" >}}) 
+{{< / logseq/orgNOTE >}}

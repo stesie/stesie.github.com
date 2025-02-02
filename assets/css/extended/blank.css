@@ -20,12 +20,12 @@
 }
 
 .quote-request::before {
-    content: "Request:";
+    content: "Request: ";
     color: rgb(0, 128, 128);
 }
 
 .quote-response::before {
-    content: "Response:";
+    content: "Response: ";
     color: rgb(128, 0, 128);
 }
 

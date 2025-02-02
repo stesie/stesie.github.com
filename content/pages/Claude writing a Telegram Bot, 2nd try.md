@@ -6,7 +6,7 @@ tags:
 - Claude
 - Telegram
 - Image Recognition
-status: seedling
+status: budding
 date: 2025-01-28
 title: Claude writing a Telegram Bot, 2nd try
 categories:
@@ -18,7 +18,8 @@ This is the second part of the mini series on writing Telegram bots to read my g
 {{< logseq/orgNOTE >}}This post belongs to a mini series (I'm aiming for three posts in a row), where I try prompting Claude with different levels of verbosity and compare the results:
 * In [Claude writing a Telegram Bot, 1st try]({{< ref "/pages/Claude writing a Telegram Bot, 1st try" >}}) I'm using an elaborate, step-by-step prompting strategy with Haiku model
 * In [Claude writing a Telegram Bot, 2nd try]({{< ref "/pages/Claude writing a Telegram Bot, 2nd try" >}}) I aim for a detailed one-shot prompt
-* In [Claude writing a Telegram Bot, 3rd try]({{< ref "/pages/Claude writing a Telegram Bot, 3rd try" >}}) I try a rather short one-shot prompt 
+* In [Claude writing a Telegram Bot, 3rd try]({{< ref "/pages/Claude writing a Telegram Bot, 3rd try" >}}) I try a rather short one-shot prompt
+* In [Other LLMs writing a Telegram Bot]({{< ref "/pages/Other LLMs writing a Telegram Bot" >}}) I quickly try DeepSeek and some more LLMs 
 {{< / logseq/orgNOTE >}}
 
 Like in the first round, I will first show the full dialog I've used to let it generate the implementation. Then following up with a discussion of the code and some final thoughts.
