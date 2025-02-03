@@ -92,6 +92,8 @@ Documentation in the code for clarity, and instructions on how to set up the env
 
 I really like (and at the same time I'm deeply impressed) how it touches on all the topics I've addressed in the recent posts. It just ticks all the boxes, ... compared to V3 it notes that it should use `dotenv` for improved security and also that it concludes to use the vision capabilities of the regular completion API.
 
+So to be clear, I have nothing to complain about the code it generated.
+
 For reference, [here's the full JavaScript code it spat out on first try](https://gist.github.com/stesie/96ea61d51ab49b709a35fb9d5e12e696).
 
 I also like the fact, that it went including emojis in the reply message, adding a nice touch like this:
