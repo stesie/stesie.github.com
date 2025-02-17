@@ -8,9 +8,9 @@ params:
   homeInfoParams:
     Title: Hello World 👋
     Content: |
-      This is my (Stefan ~stesie Siegl) personal collection of random musings,
-      related to stuff I am interested in ... that is web-related development,
-      Software Craft, Cycling. Consider it my personal digital garden, where I
+      This is my (Stefan Siegl, aka ~stesie) personal collection of random musings,
+      related to stuff I am interested in ... that is web-related development
+      and Software Craft. Consider it my personal digital garden, where I
       learn in public and share some of my (sometimes even *unfinished*)
       thoughts, which might just be the spark someone else needs. Recent posts
       also have a
@@ -29,8 +29,8 @@ params:
       url: "https://stefansiegl.de/feed.xml"
     - name: "email"
       url: "mailto:mail@stefansiegl.de"
-    - name: "strava"
-      url: "https://www.strava.com/athletes/53820805"
+      #- name: "strava"
+      #url: "https://www.strava.com/athletes/53820805"
     # - name: "youtube"
     #   url: "https://www.youtube.com/channel/XXX"
     # - name: "twitter"
