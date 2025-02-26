@@ -1,5 +1,5 @@
 ---
-status: seedling
+status: budding
 tags:
 - Java
 - Java Agents
@@ -7,7 +7,7 @@ tags:
 date: 2025-02-17
 title: Let's create a Coverage Analyzer, Part 1
 categories:
-lastMod: 2025-02-17
+lastMod: 2025-02-26
 ---
 Have you ever wondered what happens when you click on "Run with Coverage" in IntelliJ? Obviously it's running the tests, but how is it collecting the coverage information?
 
@@ -105,7 +105,29 @@ There are multiple tools, that you can use to inspect the Byte Code that's store
       13: return
 ```
 
-when also adding the `-l` option, it should print the *LineNumberTable* as well:
+{{< logseq/orgNOTE >}}You might wonder what these hash-numbers are!? These refer to the so-called [constant pool](https://blogs.oracle.com/javamagazine/post/java-class-file-constant-pool).
+```console
+$ javap -v demo/target/classes/de/brokenpipe/dojo/undercovered/demo/Demo.class 
+Constant pool:
+   #1 = Methodref          #2.#3          // java/lang/Object."<init>":()V
+   #2 = Class              #4             // java/lang/Object
+   #3 = NameAndType        #5:#6          // "<init>":()V
+   #4 = Utf8               java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = String             #8             // Hello World
+   #8 = Utf8               Hello World
+   #9 = Methodref          #10.#11        // de/brokenpipe/dojo/undercovered/demo/Demo.bla:(Ljava/lang/String;)V
+  #10 = Class              #12            // de/brokenpipe/dojo/undercovered/demo/Demo
+  #11 = NameAndType        #13:#14        // bla:(Ljava/lang/String;)V
+  #12 = Utf8               de/brokenpipe/dojo/undercovered/demo/Demo
+  #13 = Utf8               bla
+  #14 = Utf8               (Ljava/lang/String;)V
+```
+So number 7 refers to a `String`, which refers to an `Utf8` blob saying "Hello World". Likewise number 9 refers to a `Methodref` which itself refers to 10, 11 etc., which have the class name, method name and type information.
+{{< / logseq/orgNOTE >}}
+
+When adding the `-l` option to the `javap` invocation, it should print the *LineNumberTable* as well:
 
 ```
     LineNumberTable:
@@ -115,7 +137,7 @@ when also adding the `-l` option, it should print the *LineNumberTable* as well:
       line 11: 13
 ```
 
-Equipped with that knowledge, we can now insert our `track()` method invocations at byte code offsets 0, 3, 8 and 13 ... so we'll end up with
+Equipped with that knowledge, we can now insert our `track()` method invocations at byte code offsets 0, 3, 8 and 13 ... so we'll end up with something like this:
 
 ```
   public static void main(java.lang.String[]);
@@ -195,4 +217,4 @@ interface ClassFileTransformer {
 
 So we now know how to register a transformer, that can manipulate the byte code for us. Next step will be to actually come up with an implementation of that thing, that programmatically modifies the byte code array for us.
 
-To be continued 🙂
+-> [Let's create a Coverage Analyzer, Part 2]({{< ref "/pages/Let's create a Coverage Analyzer, Part 2" >}})
