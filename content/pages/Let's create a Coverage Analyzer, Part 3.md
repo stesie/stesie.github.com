@@ -4,7 +4,7 @@ tags:
 - Java
 - Java Agents
 - Byte Code
-date: 2025-03-01
+date: 2025-03-01T11:00:00Z
 title: Let's create a Coverage Analyzer, Part 3
 categories:
 lastMod: 2025-03-01
@@ -295,4 +295,4 @@ For real projects the former option would definitely be nicer. Especially since 
 
 
 
-To be continued 🙂
+[Let's create a Coverage Analyzer, Part 4]({{< ref "/pages/Let's create a Coverage Analyzer, Part 4" >}}) follows up on this implementation.
