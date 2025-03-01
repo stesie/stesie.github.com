@@ -295,4 +295,4 @@ Exception Details:
 
 ... oh no 😠
 
-What's a `VerifyError` after all? and what stackmap frame is it talking about!? Let's see in Part 3 (to be written) ...
+What's a `VerifyError` after all? and what stackmap frame is it talking about!? That's what [Let's create a Coverage Analyzer, Part 3]({{< ref "/pages/Let's create a Coverage Analyzer, Part 3" >}}) is about.
