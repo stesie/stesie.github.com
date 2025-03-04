@@ -1,5 +1,5 @@
 ---
-status: seedling
+status: budding
 tags:
 - Java
 - Java Agents
@@ -304,6 +304,6 @@ Furthermore a "real" coverage tracker likely shouldn't pull Jackson into the cla
 
 And JaCoCo moves itself into a dedicated random package name, so running code cannot make assumptions on it. And having the package randomized would also allow us to instrument ourselves.
 
-Last but not least, obviously we need an IntelliJ Plugin.
+Last but not least, [obviously we need an IntelliJ Plugin]({{< ref "/pages/Writing an IntelliJ Plugin" >}}).
 
 ... and very likely I'm missing out on some obvious points, and likely also this implementation is still buggy & incomplete 😈

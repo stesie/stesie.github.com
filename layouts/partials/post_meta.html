@@ -8,6 +8,8 @@
 {{- $scratch.Add "meta" (slice "Status: 🌿 Budding" ) }}
 {{- else if ( eq "evergreen" (.Param "status") ) }}
 {{- $scratch.Add "meta" (slice "Status: 🌳 Evergreen" ) }}
+{{- else if ( eq "wilted" (.Param "status") ) }}
+{{- $scratch.Add "meta" (slice "Status: 🥀 Wilted" ) }}
 {{- end }}
 
 {{- end }}

@@ -8,7 +8,7 @@ tags:
 - Nuremberg
 title: Pig Latin Kata
 categories:
-lastMod: 2025-01-03
+lastMod: 2025-03-04
 ---
 Yesterday I ran the Pig Latin kata at the local software craftsmenship meetup in Nuremberg. Picking *Pig Latin* as the kata to do was more a coincidence than planned, but it turned out to be an interesting choice.
 
@@ -58,6 +58,6 @@ Besides that feedback was positive and we had a lot of fun doing the kata.
 
 ## Further material:
 
-  + [Pig Latin on exercism.io](http://exercism.io/exercises/java/pig-latin/readme)
+  + [Pig Latin on exercism.io](https://exercism.org/tracks/java/exercises/pig-latin)
 
-  + [my solution in Java 8](http://exercism.io/submissions/8ea580c14b54490c96456bb786846add)
+  + [my solution in Java 8](https://exercism.org/tracks/java/exercises/pig-latin/solutions/stesie)

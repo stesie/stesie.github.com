@@ -1,9 +1,3 @@
-.important {
-    background: rgba(128, 128, 0, 0.3);
-    padding: 1em;
-    margin-bottom: 1em;
-}
-
 .quote-request.quote-request {
     background: rgba(0, 128, 128, 0.1);
     border-inline-start-color: rgb(0, 128, 128);
@@ -44,5 +38,11 @@
 .admonition-body {
     margin-left: 1rem;
     min-width: 0;
+}
+
+.caution, .important {
+    background: rgba(128, 128, 0, 0.3);
+    padding: 1em;
+    margin-bottom: 1em;
 }
 

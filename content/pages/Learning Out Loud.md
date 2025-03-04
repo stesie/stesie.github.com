@@ -55,6 +55,10 @@ From [Maggie Appleton](https://maggieappleton.com/)'s wonderful post [A brief Hi
 
   + 🌳 *Evergreen* for reasonably complete work (think of blog posts)
 
+In addition I've meanwhile also added
+
+  + 🥀 *Wilted* for outdated "tombstone" articles
+
 To achieve this, I've introduced a new page-level metadata attribute in Logseq, which I just call `status`. This status attribute is exported (by the Schrödinger plugin) to the front matter of the post, which is then picked up by Hugo.
 
 Last but not least I've [extended the post_meta.html template](https://github.com/stesie/stesie.github.com/blob/main/layouts/partials/post_meta.html#L5) to actually render that information. And also, already being there, prefixed the post's date with a "planted:" label ... and also adding a "last tended" field, showing the date of last modification (if different).

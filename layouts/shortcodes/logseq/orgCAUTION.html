@@ -1,3 +1,6 @@
-<div class="caution {{ .Get 0 }}">
-    {{ .Inner | $.Page.RenderString }}
+<div class="admonition caution {{ .Get 0 }}">
+    <div class="admonition-icon">🚨</div>
+    <div class="admonition-body">
+        {{ .Inner | $.Page.RenderString }}
+    </div>
 </div>
