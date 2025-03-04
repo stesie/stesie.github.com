@@ -4,7 +4,7 @@ tags:
 - sway
 - Dvorak
 description: About 15 years ago, I stumbled upon the Programmer Dvorak keyboard layout, which completely changed how I thought about typing. This Christmas, I decided to see if my fingers still remembered the layout, and to my surprise, they did—better than my mind could! The experience reignited my love for customizing tools, and I even set up my current system to bring back the layout, blending nostalgia with practicality.
-status: seedling
+status: budding
 title: Rediscovering Programmer Dvorak
 categories:
 lastMod: 2025-01-12

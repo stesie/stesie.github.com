@@ -7,7 +7,7 @@ tags:
 status: budding
 title: Learning Out Loud
 categories:
-lastMod: 2025-01-12
+lastMod: 2025-03-04
 ---
 Lately, I've come across the concepts of "learning in public" and "digital gardens." A digital garden is a unique approach to organizing and sharing knowledge in a non-linear and evolving manner. Think of it as a personal wiki where one can cultivate ideas, insights, and resources over time. Unlike traditional blogs or websites that present polished and finalized content, digital gardens focus on capturing the learning process itself, fostering exploration and serendipitous connections between different pieces of information. This approach encourages collaboration, creativity, and continuous learning in a more open and transparent way.
 

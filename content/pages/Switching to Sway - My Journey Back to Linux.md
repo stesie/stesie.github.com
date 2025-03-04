@@ -5,7 +5,7 @@ tags:
 - wayland
 date: 2025-01-02
 description: I recently switched from i3 to the Sway window manager on Ubuntu Linux 24.04, exploring its flexibility and learning to configure it for my needs. I customized keybindings, set up tools like swayidle and swaylock-effects for screen locking, and used kanshi for monitor management and mako for notifications. While it required more manual effort than GNOME or macOS, the result is a highly personalized and functional setup.
-status: budding
+status: evergreen
 title: Switching to Sway - My Journey Back to Linux
 categories:
 lastMod: 2025-01-16
