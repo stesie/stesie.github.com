@@ -4,6 +4,9 @@ tags:
 - Java
 - Java Agents
 - Byte Code
+- Instrumentation
+- Coverage Analyzer
+- Undercovered
 date: 2025-02-26
 title: Let's create a Coverage Analyzer, Part 2
 categories:

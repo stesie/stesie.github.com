@@ -4,6 +4,8 @@ tags:
 - Java
 - IntelliJ
 - Plugin
+- Coverage Analyzer
+- Undercovered
 date: 2025-03-04
 title: Writing an IntelliJ Plugin
 categories:

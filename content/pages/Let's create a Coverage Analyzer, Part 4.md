@@ -4,10 +4,13 @@ tags:
 - Java
 - Java Agents
 - Byte Code
+- Instrumentation
+- Coverage Analyzer
+- Undercovered
 date: 2025-03-01T18:30:00Z
 title: Let's create a Coverage Analyzer, Part 4
 categories:
-lastMod: 2025-03-01
+lastMod: 2025-03-01T18:30:00Z
 ---
 This is part four of my journey creating a Java (Line) Coverage Analyzer.
 

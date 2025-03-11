@@ -3,6 +3,7 @@ category: TIL
 tags:
 - TIL
 - JUnit
+- Java
 date: 2024-08-24
 status: budding
 title: JUnit Assumptions API
