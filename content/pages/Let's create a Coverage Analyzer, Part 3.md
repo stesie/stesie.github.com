@@ -10,7 +10,7 @@ tags:
 date: 2025-03-01T11:00:00Z
 title: Let's create a Coverage Analyzer, Part 3
 categories:
-lastMod: 2025-03-01
+lastMod: 2025-03-01T11:00:00Z
 ---
 This is part three of my journey creating a Java (Line) Coverage Analyzer.
 
