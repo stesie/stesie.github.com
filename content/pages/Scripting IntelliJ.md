@@ -108,21 +108,15 @@ The LivePlugin also offers to add IDE Jars to the active project. This is very h
 
 ... however when trying to use Java Plugin APIs (for example if you try to query Psi for Java Annotations), that's not enough. To add that as well, do the following:
 
-  + locate the `java-impl.jar` file from the IntelliJ Java Plugin on your disk; having installed IntelliJ via their Toolbox, it's located in my home directory under `.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/plugins/java/lib/java-impl.jar`
-logseq.order-list-type:: number
+  + 1. locate the `java-impl.jar` file from the IntelliJ Java Plugin on your disk; having installed IntelliJ via their Toolbox, it's located in my home directory under `.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/plugins/java/lib/java-impl.jar`
 
-  + go to the Project Tool Window and locate "External Libraries"
-logseq.order-list-type:: number
+  + 2. go to the Project Tool Window and locate "External Libraries"
 
-  + right at the top there should be an entry "LivePlugin and IDE jars (to enable navigation and auto-complete)", right-click that an choose "Open Library Settings"
-logseq.order-list-type:: number
+  + 3. right at the top there should be an entry "LivePlugin and IDE jars (to enable navigation and auto-complete)", right-click that an choose "Open Library Settings"
 
-  + that should open the "Project Structure" window and auto-select "LivePlugin and IDE jars (to enable navigation and auto-complete)" ... once more right-click here and select "Edit" this time
-logseq.order-list-type:: number
+  + 4. that should open the "Project Structure" window and auto-select "LivePlugin and IDE jars (to enable navigation and auto-complete)" ... once more right-click here and select "Edit" this time
 ...that should open "Configure Module Library" window
 
-  + click the "+" Button there and locate the file from Step 1
-logseq.order-list-type:: number
+  + 5. click the "+" Button there and locate the file from Step 1
 
 ... and done 🙂
-
