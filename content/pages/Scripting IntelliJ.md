@@ -1,16 +1,17 @@
 ---
-status: seedling
+status: budding
 tags:
 - Java
 - IntelliJ
 - Plugin
 - LivePlugin
 - Flora
+- TIL
 date: 2025-03-17
 category: TIL
 title: Scripting IntelliJ
 categories: TIL
-lastMod: 2025-03-17
+lastMod: 2025-03-18
 ---
 Recently I learned, that it's possible to script IntelliJ. I picked up on it while [Writing an IntelliJ Plugin]({{< ref "/pages/Writing an IntelliJ Plugin" >}}) for my Coverage Tracker project, aka "Undercovered". So there is the [IDE scripting console](https://www.jetbrains.com/help/idea/ide-scripting-console.html), which comes out-of-the-box. You just open the Action panel and search for _IDE Scripting Console_, next a tiny popup menu should show, asking for whether it should be Groovy or Kotlin (beta). Right away you can enter some code and evaluate it by pressing Control + Return.
 
@@ -100,6 +101,18 @@ if (namedAnnotationClass) {
 
 
 
+## Developer Experience
+
+The DX with these "Live Plugins" in my opinion isn't great -- in Java Land you're used to using a proper debugger. And that's just not available. Since the Code is sourced into the running IntelliJ instance, you cannot just attach a debugger and stop execution.
+
+For the "LivePlugin" plugin there even is a bug report [Run a plugin in Debug mode](https://github.com/dkandalov/live-plugin/issues/32) dating from October 2013 🙂
+
+I personally resorted back to `println` debugging and tailing IntelliJ's application log file `~/.cache/JetBrains/IntelliJIdea2024.3/log/idea.log` ... where the print outputs shows up. Mainly since I was developing off the "LivePlugin", but solely using IntelliJ's own "IDE Scripting Console".
+
+That said, when using _LivePlugin_, there is another option: [PluginUtil](https://github.com/dkandalov/live-plugin/blob/master/src/plugin-api-groovy/liveplugin/PluginUtil.groovy), which ships a large number of utility functions. Among them are `showInConsole`, which opens a console window ... suitable to dump an exception. Also there is `inspect`, which takes a single argument and opens a popup, allowing to inspect that given object.
+
+
+
 ## Code Completion → Adding IDE Jars
 
 The LivePlugin also offers to add IDE Jars to the active project. This is very helpful to get code completion.
@@ -108,15 +121,15 @@ The LivePlugin also offers to add IDE Jars to the active project. This is very h
 
 ... however when trying to use Java Plugin APIs (for example if you try to query Psi for Java Annotations), that's not enough. To add that as well, do the following:
 
-  + 1. locate the `java-impl.jar` file from the IntelliJ Java Plugin on your disk; having installed IntelliJ via their Toolbox, it's located in my home directory under `.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/plugins/java/lib/java-impl.jar`
+  + locate the `java-impl.jar` file from the IntelliJ Java Plugin on your disk; having installed IntelliJ via their Toolbox, it's located in my home directory under `.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/plugins/java/lib/java-impl.jar`
 
-  + 2. go to the Project Tool Window and locate "External Libraries"
+  + go to the Project Tool Window and locate "External Libraries"
 
-  + 3. right at the top there should be an entry "LivePlugin and IDE jars (to enable navigation and auto-complete)", right-click that an choose "Open Library Settings"
+  + right at the top there should be an entry "LivePlugin and IDE jars (to enable navigation and auto-complete)", right-click that an choose "Open Library Settings"
 
-  + 4. that should open the "Project Structure" window and auto-select "LivePlugin and IDE jars (to enable navigation and auto-complete)" ... once more right-click here and select "Edit" this time
+  + that should open the "Project Structure" window and auto-select "LivePlugin and IDE jars (to enable navigation and auto-complete)" ... once more right-click here and select "Edit" this time
 ...that should open "Configure Module Library" window
 
-  + 5. click the "+" Button there and locate the file from Step 1
+  + click the "+" Button there and locate the file from Step 1
 
 ... and done 🙂

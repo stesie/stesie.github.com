@@ -5,6 +5,7 @@ tags:
 - JUnit
 - cadiff
 - TIL
+- Java
 status: budding
 title: JUnit Parameter Resolvers
 categories: TIL
