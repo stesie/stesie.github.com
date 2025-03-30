@@ -102,15 +102,15 @@ So I hardly implemented any feature myself (especially not a larger chunk of wor
 
 I think generally it did better churning out new code, compared to changing existing code (it wrote earlier). Some struggles it had:
 
-  + **Kotlin’s Null Safety:** The model, trained mostly on JavaScript and Python, struggled with strict null checks ([example 1](https://codeberg.org/stesie/wueride/commit/5e6d5a63b36694f3e26721f3bbdfe74d15af7ac6), [example 2](https://codeberg.org/stesie/wueride/commit/09e1bf2f7d83a2dd068fb446e59a145731f77904)).
+  + **Kotlin’s Null Safety:** The model struggled with strict null checks, since trained mostly on JavaScript and Python (and these don't exist there) ([example 1](https://codeberg.org/stesie/wueride/commit/5e6d5a63b36694f3e26721f3bbdfe74d15af7ac6), [example 2](https://codeberg.org/stesie/wueride/commit/09e1bf2f7d83a2dd068fb446e59a145731f77904)).
 
   + **Hibernate Polymorphism:** Aider didn’t always handle Hibernate proxies correctly ([example](https://codeberg.org/stesie/wueride/commit/82337176bea7cc52d8c7b7a2dc12ee55b9968f23)).
 
-  + **Backward-Incompatible Library Changes:** For example, the [Jenetics JPX (GPX) parser](https://github.com/jenetics/jpx) had breaking changes "recently".
+  + **Backward-Incompatible Library Changes:** For example, the [Jenetics JPX (GPX) parser](https://github.com/jenetics/jpx) had breaking changes "recently", so many (?) of the code examples, Claude was trained on, no longer apply
 
   + **Refactoring Challenges:** Sometimes existing variable names were re-used (not in the diff itself, but if it adds more code to an existing method), and Claude occasionally failed to recognize inheritance structures ([example](https://codeberg.org/stesie/wueride/commit/89e4a41b50febe2c7a535dd8c6c94a2d17c784e3)).
 
-Juniors struggle with that kind of stuff as well. And I'm pretty sure Claude (and other LLMs) will even get better soon.
+Juniors struggle with that kind of stuff as well. And I'm pretty sure Claude (and other LLMs) will even get better soon 🙂
 
 ## Conclusion
 
