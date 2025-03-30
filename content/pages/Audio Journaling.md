@@ -105,5 +105,3 @@ Your response should be formatted as follows:
   - [[gpt]] Insert bullet points from transcript here
   - [[gpt]] Repeat line if necessary
 {{< / logseq/orgNOTE >}}
-
-By integrating audio journaling into my routine, I've found a new way to streamline my reflections and make the most of my personal knowledge management system. While it took some experimentation to find the right approach, the combination of open-source tools and creative scripting has made the process both efficient and effective.
