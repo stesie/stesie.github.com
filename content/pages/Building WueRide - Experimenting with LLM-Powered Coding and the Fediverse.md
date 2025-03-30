@@ -1,5 +1,5 @@
 ---
-status: seedling
+status: budding
 tags:
 - WueRide
 - Aider
@@ -129,3 +129,5 @@ Honestly, I don’t know yet.
 I’d love to build a local, community-driven trip-sharing platform. Perhaps some of you are interested in a hackathon around it?
 
 But a social network without users doesn’t make sense. So, the big question is: Would you be interested in joining or contributing to such a platform?
+
+[Comment here](https://wue.social/@rolf/114252302119667603).
