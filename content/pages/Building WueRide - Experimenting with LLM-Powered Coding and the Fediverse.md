@@ -11,11 +11,9 @@ title: Building WueRide - Experimenting with LLM-Powered Coding and the Fedivers
 categories:
 lastMod: 2025-03-30
 ---
-A few weeks ago, I came across Harper Reed’s blog post, [My LLM codegen workflow atm](https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/), which made the rounds in the developer community. While his approach to using an LLM to collect and refine requirements was interesting, what really caught my attention was his mention of [Aider](https://aider.chat/).
+A few weeks ago, I came across Harper Reed’s blog post, [My LLM codegen workflow atm](https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/), which made the rounds in the developer community. While his approach to using a LLM to collect and refine requirements was interesting, ... what really caught my attention was him mentioning, that he uses [Aider](https://aider.chat/) to let LLMs modify his code.
 
-## What is Aider?
-
-Simply put, Aider is a CLI tool that isn’t tied to a specific LLM. It takes a prompt, sends it to a language model, requests code in a diff-based format, and applies those changes automatically to your project. Additionally, it commits the changes to a Git repository, complete with generated commit messages. Put differently: it saves you from copy & pasting the LLM suggestions, but takes them over automatically.
+**So what is Aider?** Simply put, Aider is a CLI tool that isn’t tied to a specific LLM. It takes a prompt, sends it to a language model, requests code in a diff-based format, and applies those changes automatically to your project. Additionally, it commits the changes to a Git repository, complete with generated commit messages. Put differently: it saves you from copy & pasting the LLM suggestions, but takes them over automatically.
 
 Aider also gathers relevant information about the local project (package structure, existing classes etc.) and implicitly provides that context to the LLM, preventing it from acting in a vacuum.
 
@@ -29,10 +27,10 @@ Furthermore my friend Simon asked if I’d be up for a hackathon-style project. 
 
 Why not combine all these interests into one project?
 
-On Monday, I texted Simon:
+On Monday morning, I texted Simon:
 > Somehow I also want/need to resist the urge to start a new software project 😅
 
-Yet, the temptation was too strong to resist. One hour later, I fired up IntelliJ, created a new Kotlin project, and started Aider the first time. My plan was clear: let Aider handle the implementation while I focused on architecture and requirements. Given that I had barely any Kotlin experience—just a quick read of the docs the night before—this approach was both necessary and exciting.
+Yet, the temptation was too strong to resist. Hardly one hour later, I fired up IntelliJ, created a new Kotlin project, and started Aider the first time. My plan was clear: let Aider handle the implementation while I focused on architecture and requirements. Given that I had barely any Kotlin experience—just a quick read of the docs the night before—this approach was both necessary and exciting.
 
 Fast-forward three days, and I [published this toot on wue.social](https://wue.social/@rolf/114236651019278127):
 
@@ -52,7 +50,7 @@ All this for about $8 in LLM usage fees (using Anthropic’s Claude Sonnet 3.7),
 
 ## Could I Have Done This Without an LLM?
 
-Certainly—but not in this timeframe. Without LLM support, I would have had to first learn Kotlin properly. The federation aspect and high-level goals were clear to me, but the rapid implementation speed wouldn’t have been possible.
+Certainly—but not in this timeframe. The federation aspect and high-level goals were mostly clear to me, but the rapid implementation speed wouldn’t have been possible.
 
 So, was this experiment a success? I’d say yes. I now have a working prototype that I can iterate on.
 
@@ -118,9 +116,9 @@ Use of Aider was definitely a huge boost in my productivity. The "paired" approa
 
 ... that said, I'd definitely use Aider again and can warmly recommend (at least) trying it.
 
-However I traded (short term) productivity for (long term) deeper understanding of Kotlin.
+However I traded (short term) productivity for (long term) deeper understanding of Kotlin. Which is a pity, given that I wanted to actually learn it in the first place 😂
 
-And I wouldn't agree that you can just "Vibe Code" away and forget about the code. Or you shouldn't at least impose Kotlin-use.
+And I wouldn't agree that you can just "Vibe Code" away and forget about the code. Or you shouldn't at least impose Kotlin-use when doing so.
 
 ## What’s Next?
 
