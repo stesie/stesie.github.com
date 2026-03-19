@@ -34,7 +34,8 @@ fi
 
 systemd-run --user -t \
   -p PrivateTmp=yes \
-  -p ProtectHome=tmpfs \
+  -p ProtectHome=tmpfs -p TemporaryFileSystem=$HOME \
+  -p InaccessiblePaths="/run/docker /run/dbus /run/NetworkManager" \
   -p NoNewPrivileges=yes \
   -p ProtectSystem=strict \
   -p ProtectKernelTunables=yes \
@@ -48,11 +49,14 @@ systemd-run --user -t \
   aider "$@"
 ```
 
-... which mainly does the following
+... which mainly does the following:
 
-  + mostly hide my whole /home directory (with the exceptions of aider's config and .gitconfig, so it can infer my name/email), using `-p ProtectHome=tmpfs`
+  + Mostly hide my whole /home directory (with the exceptions of aider's config and .gitconfig, so it can infer my name/email), using `-p ProtectHome=tmpfs`. Which would result in a read-only home directory -- however then applications wouldn't be able to create cache directory. Also e.g. `chromium --headless` needs write access to the home directory.
+Which is why I also added `-p TemporaryFileSystem=$HOME`, so /home itself is read-only (and hidden), but my actual home directory is a _writable_ tmpfs.
 
-  + it also makes sure that e.g. `/run/user` isn't accessible, so the sandboxed process has no access to my SSH/GnuPG agent
+  + It also makes sure that e.g. `/run/user` isn't accessible, so the sandboxed process has no access to my SSH/GnuPG agent (also an effect of `-p ProtectHome=tmpfs`)
+
+  + Make _docker_ et al inaccessible, using `-p InaccessiblePaths="/run/docker /run/dbus /run/NetworkManager"`. Access to `/run` is generally possible.
 
   + it searches for the current top-level git directory, and exposes that as a whole **for writing** (falling back to current directory), using `-p BindPaths`
 
@@ -99,8 +103,8 @@ pkgs.writeShellScriptBin name ''
 
   ${pkgs.systemd}/bin/systemd-run --user -t \
     -p PrivateTmp=yes \
-    -p ProtectHome=tmpfs \
-    -p NoNewPrivileges=yes \
+    -p ProtectHome=tmpfs -p TemporaryFileSystem=$HOME \
+    -p InaccessiblePaths="/run/docker /run/dbus /run/NetworkManager" \
     -p ProtectSystem=strict \
     -p ProtectKernelTunables=yes \
     -p ProtectControlGroups=yes \
