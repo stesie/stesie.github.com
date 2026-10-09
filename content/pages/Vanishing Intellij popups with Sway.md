@@ -5,10 +5,10 @@ tags:
 - IntelliJ
 - sway
 - NixOS
-date: 2025-10-09
+date: 2026-10-09
 title: Vanishing Intellij popups with Sway
 categories:
-lastMod: 2025-10-09
+lastMod: 2026-10-09
 ---
 After my last NixOS update IntelliJ started behaving weirdly. Not always, just *sometimes*. The autocomplete popup opens, maybe remains open for a keystroke or two. Then suddenly disappears.
 
