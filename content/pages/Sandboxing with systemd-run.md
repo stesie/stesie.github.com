@@ -2,11 +2,11 @@
 tags:
 - Aider
 - systemd
-status: seedling
+status: budding
 date: 2026-02-02
 title: Sandboxing with systemd-run
 categories:
-lastMod: 2026-02-06
+lastMod: 2026-03-19
 ---
 So this applies to all coding agents, but I'm just exercising it with *aider* here. TBH I even trust aider pretty much and have more concerns with other beasts like Codename Goose, Claude Code, PI and others ...
 
